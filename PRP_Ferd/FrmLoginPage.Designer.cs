@@ -103,7 +103,7 @@
             this.btnParaYonetimi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnParaYonetimi.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnParaYonetimi.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnParaYonetimi.Location = new System.Drawing.Point(185, 283);
+            this.btnParaYonetimi.Location = new System.Drawing.Point(160, 286);
             this.btnParaYonetimi.Name = "btnParaYonetimi";
             this.btnParaYonetimi.Size = new System.Drawing.Size(135, 38);
             this.btnParaYonetimi.TabIndex = 13;
@@ -116,7 +116,7 @@
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(326, 283);
+            this.button1.Location = new System.Drawing.Point(301, 286);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(135, 38);
             this.button1.TabIndex = 14;

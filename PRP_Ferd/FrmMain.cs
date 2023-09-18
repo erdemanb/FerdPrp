@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FerdBussiness;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,6 +32,8 @@ namespace PRP_Ferd
             DateTime dateTime = DateTime.Now;
             string tarih = dateTime.ToShortDateString();
             label11.Text = "Bugün " + tarih;
+            Bussiness frb = new Bussiness();
+            frb.DataBaseOlustur();
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -51,5 +54,10 @@ namespace PRP_Ferd
             this.Close();
         }
 
+        private void btnParaYonetimi_Click(object sender, EventArgs e)
+        {
+            FrmYapilacaklar fry = new FrmYapilacaklar();   
+            fry.Show();
+        }
     }
 }

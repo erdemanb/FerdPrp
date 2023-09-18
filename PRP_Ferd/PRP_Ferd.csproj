@@ -77,6 +77,12 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmYapilacaklar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmYapilacaklar.Designer.cs">
+      <DependentUpon>FrmYapilacaklar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmLoginPage.resx">
@@ -84,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmYapilacaklar.resx">
+      <DependentUpon>FrmYapilacaklar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -107,6 +116,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FerdBussiness\FerdBussiness.csproj">
+      <Project>{c1ea1860-638b-45cb-8b89-52f50b0ebfa7}</Project>
+      <Name>FerdBussiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ferd_DAL\Ferd_DAL.csproj">
+      <Project>{e98ae17b-f3cf-4a54-bfff-78e1e44d181e}</Project>
+      <Name>Ferd_DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
