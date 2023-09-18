@@ -120,18 +120,17 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIwSURBVFhHvZfBKkZBFMdvkmRhYSEryQPIE8jKwkKWnsJC
-        HmAkSd9CkpW1JA8gSbKSJMlKkoWFJMlCsuL/P83UGGfunfnc+/3rt5mZO+fcc2bOzBTpMj1gGqyDU/AI
-        3sAzeABnYBPMgj77UR0yg2ANvILvRN4BnRm2k7Qj0w0W7WSakRQ+wQrotZOmygwBhlmbtB2uwKidvEoc
-        aO7th3XCtTJujcQk+W7CuINOxCJhusCxHdgk10BbE2beG9Q02FW/ZAYA97Q22HELjoI2DdaDy6At5Av4
-        qTDLXqfGOaCTTBP3tzaG7AEWLBQic2DbYmw749zvT15HCBcljDsZsmH7fHYA5nISJ8oi8QH6OXDSa9S4
-        APgrX3+cCIxTEq2qKMxxYFX4yT4IDRA6oRknZalyMA2VXjp2gWYIf+or2ThBdAtzEzSWoTjhK8s4eeEH
-        uZUv4kS2cYKtX5i7oLEKJeeUOKDtjjLEgZwURIw7ZTshKUhdhLHVri3CVCdkEaZsw9gOYM7L+rS5fGQb
-        TgSNIbFC5BvQnEguRPgwuxRrfxc4kVyKZfCS16HBKLjDaMu2abBiusPo0LbFcIcRlXQcc7umXFh4HPMO
-        qPU5wuOY6uiFZNUa9SXh7cSVjNGJXdPlUppbGXPgYq+6npsR0IQTND5mjVRJInFiP6yDnIeJk6yJBfDf
-        pxkrbVDIsiTRwKrlwaEa0ajjcRpKCswUaAFez1kh+WImfJ4zZXy6z4DE53lR/ACqwyiVfjZZawAAAABJ
-        RU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wgAADsIBFShKgAAAAjBJREFUWEe9l8EqRkEUx2+SZGFhISvJA8gTyMrCQpaewkIeYCRJ30KSlbUkDyBJ
+        spIkyUqShYUkyUKy4v8/zdQYZ+6d+dz7/eu3mZk759xzZs7MFOkyPWAarINT8AjewDN4AGdgE8yCPvtR
+        HTKDYA28gu9E3gGdGbaTtCPTDRbtZJqRFD7BCui1k6bKDAGGWZu0Ha7AqJ28Shxo7u2HdcK1Mm6NxCT5
+        bsK4g07EImG6wLEd2CTXQFsTZt4b1DTYVb9kBgD3tDbYcQuOgjYN1oPLoC3kC/ipMMtep8Y5oJNME/e3
+        NobsARYsFCJzYNtibDvj3O9PXkcIFyWMOxmyYft8dgDmchInyiLxAfo5cNJr1LgA+Ctff5wIjFMSraoo
+        zHFgVfjJPggNEDqhGSdlqXIwDZVeOnaBZgh/6ivZOEF0C3MTNJahOOEryzh54Qe5lS/iRLZxgq1fmLug
+        sQol55Q4oO2OMsSBnBREjDtlOyEpSF2EsdWuLcJUJ2QRpmzD2A5gzsv6tLl8ZBtOBI0hsULkG9CcSC5E
+        +DC7FGt/FziRXIpl8JLXocEouMNoy7ZpsGK6w+jQtsVwhxGVdBxzu6ZcWHgc8w6o9TnC45jq6IVk1Rr1
+        JeHtxJWM0Yld0+VSmlsZc+Bir7qemxHQhBM0PmaNVEkicWI/rIOch4mTrIkF8N+nGSttUMiyJNHAquXB
+        oRrRqONxGkoKzBRoAV7PWSH5YiZ8njNlfLrPgMTneVH8AKrDKJV+NllrAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

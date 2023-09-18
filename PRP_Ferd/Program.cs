@@ -16,7 +16,7 @@ namespace PRP_Ferd
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLoginPage());
+            Application.Run(new FrmMain());
         }
         //Proje, Hüseyin Erdem Anbarkaya tarafından yapılmıştır. 
     }
