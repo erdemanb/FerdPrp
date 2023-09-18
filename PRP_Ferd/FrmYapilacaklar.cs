@@ -39,11 +39,10 @@ namespace PRP_Ferd
         {
             DataGridViewTextBoxColumn siraSutunu = new DataGridViewTextBoxColumn();
             siraSutunu.Name = "Sira";
-            siraSutunu.HeaderText = "Sıra";
-            siraSutunu.ReadOnly = true;
             dataGridView1.Columns.Insert(0, siraSutunu);
             DataGridViewaVeriListele();
-            this.KeyPreview = true;
+            txtYapilacakIs.Focus();
+
         }
 
         private void DataGridViewaVeriListele()
@@ -59,6 +58,7 @@ namespace PRP_Ferd
             }
             dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader);
             dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridView1.ReadOnly = true;
         }
 
         private void FrmYapilacaklar_MouseDown(object sender, MouseEventArgs e)
@@ -114,7 +114,7 @@ namespace PRP_Ferd
             {
                 bl3.SatirSilTblIsler(int.Parse(txtGorevID.Text));
             }
-            catch ( Exception)
+            catch (Exception)
             {
 
                 MessageBox.Show("Lütfen geçerli bir satırı seçtiğinizden emin olunuz!");
@@ -133,7 +133,7 @@ namespace PRP_Ferd
                 Bussiness bl4 = new Bussiness();
                 bl4.TumVerileriSilTblIsler();
                 MessageBox.Show("Tablo tamamen temizlenmiştir.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+
             }
             else if (result == DialogResult.Cancel)
             {
@@ -147,14 +147,28 @@ namespace PRP_Ferd
         private void button3_Click(object sender, EventArgs e)
         {
             Bussiness bl5 = new Bussiness();
-            bl5.SatirGuncelleTblIsler(int.Parse(txtGorevID.Text),txtYapilacakIs.Text);
+            bl5.SatirGuncelleTblIsler(int.Parse(txtGorevID.Text), txtYapilacakIs.Text);
             DataGridViewaVeriListele();
 
         }
 
-        private void FrmYapilacaklar_KeyDown(object sender, KeyEventArgs e)
-        {
 
+        private void txtYapilacakIs_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+
+                string girilenMetin = txtYapilacakIs.Text.Trim();
+
+                if (!string.IsNullOrEmpty(girilenMetin))
+                {
+                    Bussiness bl7 = new Bussiness();
+                    bl7.VeriEkleTblIsler(girilenMetin);
+                    txtYapilacakIs.Clear();
+                    DataGridViewaVeriListele();
+                }
+            }
         }
     }
 }

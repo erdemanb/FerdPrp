@@ -31,10 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.label11 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnYapilacaklar = new System.Windows.Forms.Button();
+            this.btnFilmler = new System.Windows.Forms.Button();
+            this.btnKitaplar = new System.Windows.Forms.Button();
             this.btnParaYonetimi = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,58 +63,58 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
+            // btnYapilacaklar
+            // 
+            this.btnYapilacaklar.BackColor = System.Drawing.Color.Transparent;
+            this.btnYapilacaklar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnYapilacaklar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnYapilacaklar.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnYapilacaklar.Location = new System.Drawing.Point(97, 106);
+            this.btnYapilacaklar.Name = "btnYapilacaklar";
+            this.btnYapilacaklar.Size = new System.Drawing.Size(202, 53);
+            this.btnYapilacaklar.TabIndex = 12;
+            this.btnYapilacaklar.Text = "Yapılacaklar Listesi";
+            this.btnYapilacaklar.UseVisualStyleBackColor = false;
+            this.btnYapilacaklar.Click += new System.EventHandler(this.btnParaYonetimi_Click);
+            // 
+            // btnFilmler
+            // 
+            this.btnFilmler.BackColor = System.Drawing.Color.Transparent;
+            this.btnFilmler.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnFilmler.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFilmler.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnFilmler.Location = new System.Drawing.Point(97, 165);
+            this.btnFilmler.Name = "btnFilmler";
+            this.btnFilmler.Size = new System.Drawing.Size(202, 53);
+            this.btnFilmler.TabIndex = 13;
+            this.btnFilmler.Text = "Filmler";
+            this.btnFilmler.UseVisualStyleBackColor = false;
+            // 
+            // btnKitaplar
+            // 
+            this.btnKitaplar.BackColor = System.Drawing.Color.Transparent;
+            this.btnKitaplar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnKitaplar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnKitaplar.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnKitaplar.Location = new System.Drawing.Point(324, 165);
+            this.btnKitaplar.Name = "btnKitaplar";
+            this.btnKitaplar.Size = new System.Drawing.Size(202, 53);
+            this.btnKitaplar.TabIndex = 14;
+            this.btnKitaplar.Text = "Kitaplar";
+            this.btnKitaplar.UseVisualStyleBackColor = false;
+            // 
             // btnParaYonetimi
             // 
             this.btnParaYonetimi.BackColor = System.Drawing.Color.Transparent;
             this.btnParaYonetimi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnParaYonetimi.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnParaYonetimi.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnParaYonetimi.Location = new System.Drawing.Point(97, 106);
+            this.btnParaYonetimi.Location = new System.Drawing.Point(324, 106);
             this.btnParaYonetimi.Name = "btnParaYonetimi";
             this.btnParaYonetimi.Size = new System.Drawing.Size(202, 53);
-            this.btnParaYonetimi.TabIndex = 12;
-            this.btnParaYonetimi.Text = "Yapılacaklar Listesi";
+            this.btnParaYonetimi.TabIndex = 15;
+            this.btnParaYonetimi.Text = "Para Yönetimi";
             this.btnParaYonetimi.UseVisualStyleBackColor = false;
-            this.btnParaYonetimi.Click += new System.EventHandler(this.btnParaYonetimi_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(97, 165);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(202, 53);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Filmler";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button2.Location = new System.Drawing.Point(324, 165);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(202, 53);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Kitaplar";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button3.Location = new System.Drawing.Point(324, 106);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(202, 53);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "Para Yönetimi";
-            this.button3.UseVisualStyleBackColor = false;
             // 
             // FrmMain
             // 
@@ -123,10 +123,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(634, 345);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnParaYonetimi);
+            this.Controls.Add(this.btnKitaplar);
+            this.Controls.Add(this.btnFilmler);
+            this.Controls.Add(this.btnYapilacaklar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label11);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -143,9 +143,9 @@
         #endregion
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnYapilacaklar;
+        private System.Windows.Forms.Button btnFilmler;
+        private System.Windows.Forms.Button btnKitaplar;
         private System.Windows.Forms.Button btnParaYonetimi;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
     }
 }
