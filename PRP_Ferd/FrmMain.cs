@@ -30,7 +30,7 @@ namespace PRP_Ferd
         {
             DateTime dateTime = DateTime.Now;
             string tarih = dateTime.ToShortDateString();
-            label11.Text = tarih;
+            label11.Text = "Bugün " + tarih;
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {

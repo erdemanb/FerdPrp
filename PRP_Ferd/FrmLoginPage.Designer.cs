@@ -34,6 +34,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnParaYonetimi = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +78,7 @@
             // 
             this.textBox2.Font = new System.Drawing.Font("Oswald", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.textBox2.Location = new System.Drawing.Point(257, 230);
-            this.textBox2.MaxLength = 15;
+            this.textBox2.MaxLength = 12;
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(152, 30);
@@ -95,6 +97,32 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // btnParaYonetimi
+            // 
+            this.btnParaYonetimi.BackColor = System.Drawing.Color.Transparent;
+            this.btnParaYonetimi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnParaYonetimi.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnParaYonetimi.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnParaYonetimi.Location = new System.Drawing.Point(185, 283);
+            this.btnParaYonetimi.Name = "btnParaYonetimi";
+            this.btnParaYonetimi.Size = new System.Drawing.Size(135, 38);
+            this.btnParaYonetimi.TabIndex = 13;
+            this.btnParaYonetimi.Text = "Giriş Yap";
+            this.btnParaYonetimi.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button1.Location = new System.Drawing.Point(326, 283);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(135, 38);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Kullanıcı Oluştur";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // FrmLoginPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -102,6 +130,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(621, 348);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnParaYonetimi);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -127,6 +157,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnParaYonetimi;
+        private System.Windows.Forms.Button button1;
     }
 }
 
