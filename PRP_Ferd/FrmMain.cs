@@ -32,8 +32,10 @@ namespace PRP_Ferd
             DateTime dateTime = DateTime.Now;
             string tarih = dateTime.ToShortDateString();
             label11.Text = "Bugün " + tarih;
-            Bussiness frb = new Bussiness();
-            frb.DataBaseOlustur();
+            Bussiness blmain = new Bussiness();
+            blmain.DataBaseOlustur();
+
+
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {

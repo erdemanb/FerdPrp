@@ -37,9 +37,8 @@ namespace PRP_Ferd
 
         private void FrmYapilacaklar_Load(object sender, EventArgs e)
         {
-            DataGridViewTextBoxColumn siraSutunu = new DataGridViewTextBoxColumn();
-            siraSutunu.Name = "Sira";
-            dataGridView1.Columns.Insert(0, siraSutunu);
+            DataGridOzellikler(dataGridView1);
+            DataGridOzellikler(dataGridView2);
             DataGridViewaVeriListele();
             txtYapilacakIs.Focus();
 
@@ -47,20 +46,45 @@ namespace PRP_Ferd
 
         private void DataGridViewaVeriListele()
         {
-            dataGridView1.RowTemplate.Height = 30; // Satır yüksekliğini ayarlayın (örnek değer)
-            Bussiness bl = new Bussiness();
-            DataTable VeriTablosu = bl.VeriListele();
-            dataGridView1.DataSource = VeriTablosu;
-            dataGridView1.Columns["IsID"].Visible = false;
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            {
-                dataGridView1.Rows[i].Cells["Sira"].Value = (i + 1).ToString();
-            }
-            dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader);
-            dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridView1.ReadOnly = true;
-        }
 
+            Bussiness bl = new Bussiness();
+            DataTable VeriTablosu = bl.YapilacaklarVeriListele();
+            DataTable VeriTablosu2 = bl.TamamlananlarVeriListele();
+            dataGridView1.DataSource = VeriTablosu;
+            dataGridView2.DataSource = VeriTablosu2;
+            GuncelleSiraNumaralari(dataGridView1);
+            GuncelleSiraNumaralari(dataGridView2);
+            dataGridView2.Columns["YapilanIsID"].Visible = false;
+            dataGridView1.Columns["IsID"].Visible = false;
+
+        }
+        private void GuncelleSiraNumaralari(DataGridView dataGridView)
+        {
+            for (int i = 0; i < dataGridView.Rows.Count; i++)
+            {
+                dataGridView.Rows[i].Cells["Sira"].Value = (i + 1).ToString();
+            }
+        }
+        //Aşağıdaki metot, her datagridviewda sol başa sıralama ekleyip, kolonların boyutunu otomatik ayarlar.
+        private void DataGridOzellikler(DataGridView geneldatagv)
+        {
+            DataGridViewTextBoxColumn siraSutunu = new DataGridViewTextBoxColumn();
+            siraSutunu.Name = "Sira";
+            geneldatagv.Columns.Insert(0, siraSutunu);
+
+            // DataGridView'daki satır sayısı kadar sıra değerlerini güncelle
+            for (int i = 0; i < geneldatagv.Rows.Count; i++)
+            {
+                geneldatagv.Rows[i].Cells["Sira"].Value = (i + 1).ToString();
+            }
+
+            // Kolon boyutlarını otomatik ayarla
+            geneldatagv.RowTemplate.Height = 30;
+            geneldatagv.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader);
+            geneldatagv.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            geneldatagv.ReadOnly = true;
+
+        }
         private void FrmYapilacaklar_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -169,6 +193,24 @@ namespace PRP_Ferd
                     DataGridViewaVeriListele();
                 }
             }
+        }
+
+        private void btnTamamlandi_Click(object sender, EventArgs e)
+        {
+            Bussiness bl8 = new Bussiness();
+            bl8.VeriEkleTblTamamlananlar(txtYapilacakIs.Text);
+            try
+            {
+                bl8.SatirSilTblIsler(int.Parse(txtGorevID.Text));
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Lütfen geçerli bir satırı seçtiğinizden emin olunuz!");
+            }
+            DataGridViewaVeriListele();
+            txtYapilacakIs.Clear();
         }
     }
 }

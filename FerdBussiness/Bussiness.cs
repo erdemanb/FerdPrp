@@ -20,14 +20,14 @@ namespace FerdBussiness
         public Bussiness()
         {
             DataBaseOlustur();
-
         }
 
         public void DataBaseOlustur()
         {
             connection = baglanti.GetConnection();
             connection.Open();
-            string createTable1SQL = "CREATE TABLE IF NOT EXISTS Tbl_Isler (\r\n    IsID INTEGER PRIMARY KEY AUTOINCREMENT,\r\n    YapilacakIs VARCHAR(90)\r\n);\r\n" +
+            string createTable1SQL ="CREATE TABLE IF NOT EXISTS Tbl_Isler (\r\n    IsID INTEGER PRIMARY KEY AUTOINCREMENT,\r\n    YapilacakIs VARCHAR(90)\r\n);\r\n" +
+                "CREATE TABLE IF NOT EXISTS Tbl_Tamamlananlar (\r\n YapilanIsID INTEGER PRIMARY KEY AUTOINCREMENT, \r\n    TamamlananIs VARCHAR(90)\r\n);" +
                 "CREATE TABLE IF NOT EXISTS Tbl_Login (\r\n    KullaniciID INTEGER PRIMARY KEY AUTOINCREMENT,\r\n    KullaniciAdi VARCHAR(15),\r\n    Sifre VARCHAR(12)\r\n);\r\n" +
                 "CREATE TABLE IF NOT EXISTS Tbl_Bakiye (\r\n    KarZararID INTEGER PRIMARY KEY AUTOINCREMENT,\r\n    Gelir INT,\r\n    Gider INT,\r\n    KarZarar INT\r\n);\r\n " +
                 "CREATE TABLE IF NOT EXISTS Tbl_Kitaplar (\r\n    KitapID INTEGER PRIMARY KEY AUTOINCREMENT,\r\n    KitapAd VARCHAR(50),\r\n    Yazar VARCHAR(50)\r\n);\r\n\r\n" +
@@ -38,8 +38,7 @@ namespace FerdBussiness
             command1.ExecuteNonQuery();
             connection.Close();
         }
-
-        public DataTable VeriListele()
+        public DataTable YapilacaklarVeriListele()
         {
             if (connection.State != ConnectionState.Open)
             {
@@ -54,6 +53,24 @@ namespace FerdBussiness
                 adapter.Fill(veriTablosu);
                 return veriTablosu;
             }
+            connection.Close();
+        }
+        public DataTable TamamlananlarVeriListele()
+        {
+            if (connection.State != ConnectionState.Open)
+            {
+                connection.Open();
+            }
+
+            string selectSQL = "SELECT * FROM Tbl_Tamamlananlar";
+
+            using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(selectSQL, connection))
+            {
+                DataTable veriTablosu = new DataTable();
+                adapter.Fill(veriTablosu);
+                return veriTablosu;
+            }
+            connection.Close ();
         }
         public void VeriEkleTblIsler(string yapilacakIs)
         {
@@ -71,6 +88,25 @@ namespace FerdBussiness
                     command.ExecuteNonQuery();
                 }
                 connection.Close ();
+
+
+        }
+        public void VeriEkleTblTamamlananlar(string yapilanIs)
+        {
+
+            if (connection.State != ConnectionState.Open)
+            {
+                connection.Open();
+            }
+
+            string insertSQL = "INSERT INTO Tbl_Tamamlananlar (TamamlananIs) VALUES (@P1)";
+
+            using (SQLiteCommand command = new SQLiteCommand(insertSQL, connection))
+            {
+                command.Parameters.AddWithValue("@P1", yapilanIs);
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
 
 
         }

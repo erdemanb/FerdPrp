@@ -69,7 +69,7 @@
             this.btnYapilacaklar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnYapilacaklar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnYapilacaklar.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnYapilacaklar.Location = new System.Drawing.Point(97, 106);
+            this.btnYapilacaklar.Location = new System.Drawing.Point(93, 164);
             this.btnYapilacaklar.Name = "btnYapilacaklar";
             this.btnYapilacaklar.Size = new System.Drawing.Size(202, 53);
             this.btnYapilacaklar.TabIndex = 12;
@@ -83,7 +83,7 @@
             this.btnFilmler.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnFilmler.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnFilmler.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnFilmler.Location = new System.Drawing.Point(97, 165);
+            this.btnFilmler.Location = new System.Drawing.Point(93, 223);
             this.btnFilmler.Name = "btnFilmler";
             this.btnFilmler.Size = new System.Drawing.Size(202, 53);
             this.btnFilmler.TabIndex = 13;
@@ -96,7 +96,7 @@
             this.btnKitaplar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnKitaplar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnKitaplar.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnKitaplar.Location = new System.Drawing.Point(324, 165);
+            this.btnKitaplar.Location = new System.Drawing.Point(320, 223);
             this.btnKitaplar.Name = "btnKitaplar";
             this.btnKitaplar.Size = new System.Drawing.Size(202, 53);
             this.btnKitaplar.TabIndex = 14;
@@ -109,7 +109,7 @@
             this.btnParaYonetimi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnParaYonetimi.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnParaYonetimi.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnParaYonetimi.Location = new System.Drawing.Point(324, 106);
+            this.btnParaYonetimi.Location = new System.Drawing.Point(320, 164);
             this.btnParaYonetimi.Name = "btnParaYonetimi";
             this.btnParaYonetimi.Size = new System.Drawing.Size(202, 53);
             this.btnParaYonetimi.TabIndex = 15;
