@@ -36,10 +36,6 @@ namespace PRP_Ferd
 
 
         }
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void FrmMain_MouseDown(object sender, MouseEventArgs e)
         {
@@ -50,16 +46,17 @@ namespace PRP_Ferd
             }
         }
 
-        private void pictureBox1_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void btnYapilacaklar_Click(object sender, EventArgs e)
         {
             this.Hide();
             FrmYapilacaklar fry = new FrmYapilacaklar();
             fry.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -72,7 +72,7 @@
             this.btnSil.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(128, 71);
-            this.btnSil.TabIndex = 3;
+            this.btnSil.TabIndex = 2;
             this.btnSil.Text = "Görev Sil";
             this.btnSil.UseVisualStyleBackColor = false;
             this.btnSil.Click += new System.EventHandler(this.button2_Click);
@@ -86,7 +86,7 @@
             this.btnGuncelle.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnGuncelle.Name = "btnGuncelle";
             this.btnGuncelle.Size = new System.Drawing.Size(128, 72);
-            this.btnGuncelle.TabIndex = 2;
+            this.btnGuncelle.TabIndex = 3;
             this.btnGuncelle.Text = "Görev Güncelle";
             this.btnGuncelle.UseVisualStyleBackColor = false;
             this.btnGuncelle.Click += new System.EventHandler(this.button3_Click);
@@ -140,6 +140,7 @@
             this.txtGorevID.Size = new System.Drawing.Size(36, 31);
             this.txtGorevID.TabIndex = 13;
             this.txtGorevID.TabStop = false;
+            this.txtGorevID.Visible = false;
             // 
             // txtYapilacakIs
             // 
@@ -169,7 +170,7 @@
             this.btnTabloTemizle.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnTabloTemizle.Name = "btnTabloTemizle";
             this.btnTabloTemizle.Size = new System.Drawing.Size(128, 71);
-            this.btnTabloTemizle.TabIndex = 4;
+            this.btnTabloTemizle.TabIndex = 5;
             this.btnTabloTemizle.Text = "Görevler Listesini Temizle";
             this.btnTabloTemizle.UseVisualStyleBackColor = false;
             this.btnTabloTemizle.Click += new System.EventHandler(this.button4_Click);
@@ -211,7 +212,7 @@
             this.btnTamamlandi.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnTamamlandi.Name = "btnTamamlandi";
             this.btnTamamlandi.Size = new System.Drawing.Size(128, 71);
-            this.btnTamamlandi.TabIndex = 19;
+            this.btnTamamlandi.TabIndex = 4;
             this.btnTamamlandi.Text = "Tamamlandı Olarak İşaretle";
             this.btnTamamlandi.UseVisualStyleBackColor = false;
             this.btnTamamlandi.Click += new System.EventHandler(this.btnTamamlandi_Click);
@@ -224,6 +225,7 @@
             this.txtTamamlananID.Size = new System.Drawing.Size(36, 31);
             this.txtTamamlananID.TabIndex = 20;
             this.txtTamamlananID.TabStop = false;
+            this.txtTamamlananID.Visible = false;
             // 
             // button1
             // 
@@ -234,7 +236,7 @@
             this.button1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 71);
-            this.button1.TabIndex = 21;
+            this.button1.TabIndex = 6;
             this.button1.Text = "Tamamlananlar Listesini Temizle";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
@@ -263,6 +265,7 @@
             this.Controls.Add(this.btnEkle);
             this.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "FrmYapilacaklar";

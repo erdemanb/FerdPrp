@@ -154,7 +154,7 @@ namespace PRP_Ferd
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Lütfen geçerli bir satırı seçtiğinizden emin olunuz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Lütfen geçerli bir satırı seçtiğinizden emin olunuz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else if (!string.IsNullOrEmpty(txtTamamlananID.Text))
@@ -165,12 +165,12 @@ namespace PRP_Ferd
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Lütfen geçerli bir satırı seçtiğinizden emin olunuz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Lütfen geçerli bir satırı seçtiğinizden emin olunuz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                MessageBox.Show("Lütfen bir satır seçiniz!");
+                MessageBox.Show("Lütfen bir satır seçiniz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             DataGridViewaVeriListele();
@@ -206,14 +206,27 @@ namespace PRP_Ferd
         private void button3_Click(object sender, EventArgs e)
         {
             Bussiness bl5 = new Bussiness();
+
             try
             {
-                bl5.SatirGuncelleTblIsler(int.Parse(txtGorevID.Text), txtYapilacakIs.Text);
+                if (!String.IsNullOrEmpty(txtYapilacakIs.Text))
+                {
+                    bl5.SatirGuncelleTblIsler(int.Parse(txtGorevID.Text), txtYapilacakIs.Text);
+                }
+                else if(!String.IsNullOrEmpty(txtGorevID.Text))
+                {
+                    MessageBox.Show("Güncellenen görev boş bırakılamaz, \"Görev Sil\" butonunu kullanmalısınız.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (String.IsNullOrEmpty(txtGorevID.Text))
+                {
+                    MessageBox.Show("Lütfen görevler listesinden bir satırın seçili olduğundan emin olunuz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+
             }
             catch (Exception)
             {
-
-                MessageBox.Show("Lütfen görevler listesinden bir satırın seçili olduğundan emin olunuz!","Uyarı",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Güncelleme işlemi için, daha önce var olan bir görevi seçmelisiniz.","Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             
             DataGridViewaVeriListele();
