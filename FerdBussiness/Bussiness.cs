@@ -21,8 +21,8 @@ namespace FerdBussiness
         {
             connection = baglanti.GetConnection();
             connection.Open();
-            string createTable1SQL = "CREATE TABLE IF NOT EXISTS Tbl_Isler (\r\n    IsID INTEGER PRIMARY KEY AUTOINCREMENT,\r\n    YapilacakIs VARCHAR(90)\r\n);\r\n" +
-                "CREATE TABLE IF NOT EXISTS Tbl_Tamamlananlar (\r\n YapilanIsID INTEGER PRIMARY KEY AUTOINCREMENT, \r\n    TamamlananIs VARCHAR(90)\r\n);" +
+            string createTable1SQL = "CREATE TABLE IF NOT EXISTS Tbl_Isler (\r\n    IsID INTEGER PRIMARY KEY AUTOINCREMENT,\r\n    YapilacakIs VARCHAR(50)\r\n);\r\n" +
+                "CREATE TABLE IF NOT EXISTS Tbl_Tamamlananlar (\r\n YapilanIsID INTEGER PRIMARY KEY AUTOINCREMENT, \r\n    TamamlananIs VARCHAR(50)\r\n);" +
                 "CREATE TABLE IF NOT EXISTS Tbl_Login (\r\n    KullaniciID INTEGER PRIMARY KEY AUTOINCREMENT,\r\n    KullaniciAdi VARCHAR(15),\r\n    Sifre VARCHAR(12)\r\n);\r\n" +
                 "CREATE TABLE IF NOT EXISTS Tbl_Bakiye (\r\n    KarZararID INTEGER PRIMARY KEY AUTOINCREMENT,\r\n    Gelir INT,\r\n    Gider INT,\r\n    KarZarar INT\r\n);\r\n " +
                 "CREATE TABLE IF NOT EXISTS Tbl_Kitaplar (\r\n    KitapID INTEGER PRIMARY KEY AUTOINCREMENT,\r\n    KitapAd VARCHAR(50),\r\n    Yazar VARCHAR(50)\r\n);\r\n\r\n" +

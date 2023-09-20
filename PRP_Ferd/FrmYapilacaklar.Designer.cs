@@ -144,7 +144,7 @@
             // txtYapilacakIs
             // 
             this.txtYapilacakIs.Location = new System.Drawing.Point(267, 430);
-            this.txtYapilacakIs.MaxLength = 90;
+            this.txtYapilacakIs.MaxLength = 50;
             this.txtYapilacakIs.Name = "txtYapilacakIs";
             this.txtYapilacakIs.Size = new System.Drawing.Size(494, 31);
             this.txtYapilacakIs.TabIndex = 0;
