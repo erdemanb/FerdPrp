@@ -31,7 +31,9 @@ namespace PRP_Ferd
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
+            FrmMain frm = new FrmMain();
+            frm.Show();
         }
 
 
@@ -99,18 +101,28 @@ namespace PRP_Ferd
             try
             {
                 Bussiness bl1 = new Bussiness();
-                bl1.VeriEkleTblIsler(txtYapilacakIs.Text);
+                if (!string.IsNullOrEmpty(txtYapilacakIs.Text))
+                {
+                    bl1.VeriEkleTblIsler(txtYapilacakIs.Text);
+                }
+             
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show("Hata Oluştu!" + ex.Message, "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            txtYapilacakIs.Clear();
+            txtGorevID.Clear();
+            txtTamamlananID.Clear();
             DataGridViewaVeriListele();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            dataGridView2.ClearSelection();
+            txtTamamlananID.Clear();
+            txtYapilacakIs.Clear();
             try
             {
                 if (e.RowIndex >= 0)
@@ -134,29 +146,49 @@ namespace PRP_Ferd
         {
             Bussiness bl3 = new Bussiness();
 
-            try
+            if (!string.IsNullOrEmpty(txtGorevID.Text))
             {
-                bl3.SatirSilTblIsler(int.Parse(txtGorevID.Text));
+                try
+                {
+                    bl3.SatirSilTblIsler(int.Parse(txtGorevID.Text));
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Lütfen geçerli bir satırı seçtiğinizden emin olunuz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            catch (Exception)
+            else if (!string.IsNullOrEmpty(txtTamamlananID.Text))
             {
+                try
+                {
+                    bl3.SatirSilTblTamamlananlar(int.Parse(txtTamamlananID.Text));
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Lütfen geçerli bir satırı seçtiğinizden emin olunuz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lütfen bir satır seçiniz!");
+            }
 
-                MessageBox.Show("Lütfen geçerli bir satırı seçtiğinizden emin olunuz!");
-            }
             DataGridViewaVeriListele();
             txtYapilacakIs.Clear();
+            txtGorevID.Clear();
+            txtTamamlananID.Clear();
 
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Tablodaki tüm veriler silinecektir, devam etmek istiyor musunuz?", "Uyarı", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show("Görevler tablosundaki tüm veriler silinecektir, devam etmek istiyor musunuz?", "Uyarı", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
             if (result == DialogResult.OK)
             {
                 Bussiness bl4 = new Bussiness();
                 bl4.TumVerileriSilTblIsler();
-                MessageBox.Show("Tablo tamamen temizlenmiştir.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Görevler tablosu tamamen temizlenmiştir.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             else if (result == DialogResult.Cancel)
@@ -165,15 +197,28 @@ namespace PRP_Ferd
 
             }
             DataGridViewaVeriListele();
+            txtTamamlananID.Clear();
+            txtGorevID.Clear();
+            txtYapilacakIs.Clear();
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             Bussiness bl5 = new Bussiness();
-            bl5.SatirGuncelleTblIsler(int.Parse(txtGorevID.Text), txtYapilacakIs.Text);
-            DataGridViewaVeriListele();
+            try
+            {
+                bl5.SatirGuncelleTblIsler(int.Parse(txtGorevID.Text), txtYapilacakIs.Text);
+            }
+            catch (Exception)
+            {
 
+                MessageBox.Show("Lütfen görevler listesinden bir satırın seçili olduğundan emin olunuz!","Uyarı",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
+            DataGridViewaVeriListele();
+            txtTamamlananID.Clear();
+            txtGorevID.Clear();
         }
 
 
@@ -198,7 +243,10 @@ namespace PRP_Ferd
         private void btnTamamlandi_Click(object sender, EventArgs e)
         {
             Bussiness bl8 = new Bussiness();
-            bl8.VeriEkleTblTamamlananlar(txtYapilacakIs.Text);
+            if (!String.IsNullOrEmpty(txtGorevID.Text))
+            {
+                bl8.VeriEkleTblTamamlananlar(txtYapilacakIs.Text);
+            }
             try
             {
                 bl8.SatirSilTblIsler(int.Parse(txtGorevID.Text));
@@ -207,10 +255,57 @@ namespace PRP_Ferd
             catch (Exception)
             {
 
-                MessageBox.Show("Lütfen geçerli bir satırı seçtiğinizden emin olunuz!");
+                MessageBox.Show("Lütfen görevler listesinden bir satırın seçili olduğundan emin olunuz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             DataGridViewaVeriListele();
             txtYapilacakIs.Clear();
+            txtGorevID.Clear();
+            txtTamamlananID.Clear();
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridView1.ClearSelection();
+            txtGorevID.Clear();
+            txtYapilacakIs.Clear();
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+
+                    txtYapilacakIs.Text = dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    txtTamamlananID.Text = dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Hata Oluştu! Geçerli bir satıra tıklayınız. \n" + ex.Message, "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Tamamlananlar tablosundaki tüm veriler silinecektir, devam etmek istiyor musunuz?", "Uyarı", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.OK)
+            {
+                Bussiness bl4 = new Bussiness();
+                bl4.TumVerileriSilTblTamamlananlar();
+                MessageBox.Show("Tamamlananlar tablosu tamamen temizlenmiştir.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            else if (result == DialogResult.Cancel)
+            {
+                MessageBox.Show("İşlem iptal edildi.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            DataGridViewaVeriListele();
+            txtTamamlananID.Clear();
+            txtGorevID.Clear();
+            txtYapilacakIs.Clear();
+
         }
     }
 }

@@ -33,7 +33,6 @@ namespace PRP_Ferd
             string tarih = dateTime.ToShortDateString();
             label11.Text = "Bugün " + tarih;
             Bussiness blmain = new Bussiness();
-            blmain.DataBaseOlustur();
 
 
         }
@@ -56,9 +55,10 @@ namespace PRP_Ferd
             this.Close();
         }
 
-        private void btnParaYonetimi_Click(object sender, EventArgs e)
+        private void btnYapilacaklar_Click(object sender, EventArgs e)
         {
-            FrmYapilacaklar fry = new FrmYapilacaklar();   
+            this.Hide();
+            FrmYapilacaklar fry = new FrmYapilacaklar();
             fry.Show();
         }
     }

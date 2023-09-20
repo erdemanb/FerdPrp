@@ -75,7 +75,7 @@
             this.btnYapilacaklar.TabIndex = 12;
             this.btnYapilacaklar.Text = "Yapılacaklar Listesi";
             this.btnYapilacaklar.UseVisualStyleBackColor = false;
-            this.btnYapilacaklar.Click += new System.EventHandler(this.btnParaYonetimi_Click);
+            this.btnYapilacaklar.Click += new System.EventHandler(this.btnYapilacaklar_Click);
             // 
             // btnFilmler
             // 
@@ -131,6 +131,7 @@
             this.Controls.Add(this.label11);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMain";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmMain_MouseDown);

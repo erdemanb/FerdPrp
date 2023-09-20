@@ -19,14 +19,9 @@ namespace FerdBussiness
 
         public Bussiness()
         {
-            DataBaseOlustur();
-        }
-
-        public void DataBaseOlustur()
-        {
             connection = baglanti.GetConnection();
             connection.Open();
-            string createTable1SQL ="CREATE TABLE IF NOT EXISTS Tbl_Isler (\r\n    IsID INTEGER PRIMARY KEY AUTOINCREMENT,\r\n    YapilacakIs VARCHAR(90)\r\n);\r\n" +
+            string createTable1SQL = "CREATE TABLE IF NOT EXISTS Tbl_Isler (\r\n    IsID INTEGER PRIMARY KEY AUTOINCREMENT,\r\n    YapilacakIs VARCHAR(90)\r\n);\r\n" +
                 "CREATE TABLE IF NOT EXISTS Tbl_Tamamlananlar (\r\n YapilanIsID INTEGER PRIMARY KEY AUTOINCREMENT, \r\n    TamamlananIs VARCHAR(90)\r\n);" +
                 "CREATE TABLE IF NOT EXISTS Tbl_Login (\r\n    KullaniciID INTEGER PRIMARY KEY AUTOINCREMENT,\r\n    KullaniciAdi VARCHAR(15),\r\n    Sifre VARCHAR(12)\r\n);\r\n" +
                 "CREATE TABLE IF NOT EXISTS Tbl_Bakiye (\r\n    KarZararID INTEGER PRIMARY KEY AUTOINCREMENT,\r\n    Gelir INT,\r\n    Gider INT,\r\n    KarZarar INT\r\n);\r\n " +
@@ -38,6 +33,8 @@ namespace FerdBussiness
             command1.ExecuteNonQuery();
             connection.Close();
         }
+
+
         public DataTable YapilacaklarVeriListele()
         {
             if (connection.State != ConnectionState.Open)
@@ -126,6 +123,22 @@ namespace FerdBussiness
             }
             connection.Close();
         }
+        public void SatirSilTblTamamlananlar(int id)
+        {
+            if (connection.State != ConnectionState.Open)
+            {
+                connection.Open();
+            }
+
+            string deleteSQL = "DELETE FROM Tbl_Tamamlananlar WHERE YapilanIsId = @id";
+
+            using (SQLiteCommand command = new SQLiteCommand(deleteSQL, connection))
+            {
+                command.Parameters.AddWithValue("@id", id);
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
         public void TumVerileriSilTblIsler()
         {
             if (connection.State != ConnectionState.Open)
@@ -133,7 +146,22 @@ namespace FerdBussiness
                 connection.Open();
             }
 
-            string deleteSQL = "DELETE FROM Tbl_Isler"; // WHERE koşulu olmadan tüm verileri siler
+            string deleteSQL = "DELETE FROM Tbl_Isler"; 
+
+            using (SQLiteCommand command = new SQLiteCommand(deleteSQL, connection))
+            {
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+        public void TumVerileriSilTblTamamlananlar()
+        {
+            if (connection.State != ConnectionState.Open)
+            {
+                connection.Open();
+            }
+
+            string deleteSQL = "DELETE FROM Tbl_Tamamlananlar"; 
 
             using (SQLiteCommand command = new SQLiteCommand(deleteSQL, connection))
             {
