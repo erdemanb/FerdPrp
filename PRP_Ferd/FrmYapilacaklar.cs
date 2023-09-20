@@ -39,6 +39,7 @@ namespace PRP_Ferd
 
         private void FrmYapilacaklar_Load(object sender, EventArgs e)
         {
+            this.DoubleBuffered = true;
             DataGridOzellikler(dataGridView1);
             DataGridOzellikler(dataGridView2);
             DataGridViewaVeriListele();

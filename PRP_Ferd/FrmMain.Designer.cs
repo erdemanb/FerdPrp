@@ -115,6 +115,7 @@
             this.btnParaYonetimi.TabIndex = 15;
             this.btnParaYonetimi.Text = "Para Yönetimi";
             this.btnParaYonetimi.UseVisualStyleBackColor = false;
+            this.btnParaYonetimi.Click += new System.EventHandler(this.btnParaYonetimi_Click);
             // 
             // FrmMain
             // 

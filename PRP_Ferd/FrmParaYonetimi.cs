@@ -1,5 +1,4 @@
-﻿using FerdBussiness;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +11,7 @@ using System.Windows.Forms;
 
 namespace PRP_Ferd
 {
-    public partial class FrmMain : Form
+    public partial class FrmParaYonetimi : Form
     {
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HT_CAPTION = 0x2;
@@ -22,23 +21,13 @@ namespace PRP_Ferd
 
         [DllImport("user32.dll")]
         private static extern bool ReleaseCapture();
-        public FrmMain()
+        public FrmParaYonetimi()
         {
             InitializeComponent();
-        }
-
-        private void FrmMain_Load(object sender, EventArgs e)
-        {
-            this.DoubleBuffered = true;
-            DateTime dateTime = DateTime.Now;
-            string tarih = dateTime.ToShortDateString();
-            label11.Text = "Bugün " + tarih;
-            Bussiness blmain = new Bussiness();
-
 
         }
 
-        private void FrmMain_MouseDown(object sender, MouseEventArgs e)
+        private void FrmParaYonetimi_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -47,25 +36,16 @@ namespace PRP_Ferd
             }
         }
 
-
-        private void btnYapilacaklar_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FrmYapilacaklar fry = new FrmYapilacaklar();
-            fry.Show();
-        }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
+            FrmMain frm = new FrmMain();
+            frm.Show();
         }
 
-        private void btnParaYonetimi_Click(object sender, EventArgs e)
+        private void FrmParaYonetimi_Load(object sender, EventArgs e)
         {
-            this.Hide();
-            FrmParaYonetimi frp = new FrmParaYonetimi();
-            frp.Show();
-            
+            this.DoubleBuffered = true;
         }
     }
 }

@@ -54,7 +54,8 @@
             this.btnEkle.BackColor = System.Drawing.Color.Transparent;
             this.btnEkle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEkle.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnEkle.Location = new System.Drawing.Point(50, 490);
+            this.btnEkle.ForeColor = System.Drawing.Color.White;
+            this.btnEkle.Location = new System.Drawing.Point(265, 508);
             this.btnEkle.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnEkle.Name = "btnEkle";
             this.btnEkle.Size = new System.Drawing.Size(128, 71);
@@ -68,7 +69,8 @@
             this.btnSil.BackColor = System.Drawing.Color.Transparent;
             this.btnSil.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSil.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSil.Location = new System.Drawing.Point(186, 490);
+            this.btnSil.ForeColor = System.Drawing.Color.White;
+            this.btnSil.Location = new System.Drawing.Point(401, 508);
             this.btnSil.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(128, 71);
@@ -82,7 +84,8 @@
             this.btnGuncelle.BackColor = System.Drawing.Color.Transparent;
             this.btnGuncelle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnGuncelle.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnGuncelle.Location = new System.Drawing.Point(322, 490);
+            this.btnGuncelle.ForeColor = System.Drawing.Color.White;
+            this.btnGuncelle.Location = new System.Drawing.Point(537, 508);
             this.btnGuncelle.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnGuncelle.Name = "btnGuncelle";
             this.btnGuncelle.Size = new System.Drawing.Size(128, 72);
@@ -99,7 +102,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ColumnHeadersVisible = false;
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dataGridView1.Location = new System.Drawing.Point(50, 59);
+            this.dataGridView1.Location = new System.Drawing.Point(153, 79);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(454, 348);
@@ -112,21 +115,21 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Oswald", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label1.Location = new System.Drawing.Point(178, 9);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(312, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(191, 46);
+            this.label1.Size = new System.Drawing.Size(113, 46);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Görevler Listesi";
+            this.label1.Text = "Görevler";
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(984, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 23);
+            this.pictureBox1.Size = new System.Drawing.Size(59, 60);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
@@ -134,7 +137,7 @@
             // 
             // txtGorevID
             // 
-            this.txtGorevID.Location = new System.Drawing.Point(870, 430);
+            this.txtGorevID.Location = new System.Drawing.Point(1080, 444);
             this.txtGorevID.MaxLength = 30000;
             this.txtGorevID.Name = "txtGorevID";
             this.txtGorevID.Size = new System.Drawing.Size(36, 31);
@@ -144,7 +147,7 @@
             // 
             // txtYapilacakIs
             // 
-            this.txtYapilacakIs.Location = new System.Drawing.Point(267, 430);
+            this.txtYapilacakIs.Location = new System.Drawing.Point(478, 448);
             this.txtYapilacakIs.MaxLength = 50;
             this.txtYapilacakIs.Name = "txtYapilacakIs";
             this.txtYapilacakIs.Size = new System.Drawing.Size(494, 31);
@@ -155,7 +158,8 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(140, 430);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(342, 448);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(130, 27);
             this.label3.TabIndex = 16;
@@ -166,7 +170,8 @@
             this.btnTabloTemizle.BackColor = System.Drawing.Color.Transparent;
             this.btnTabloTemizle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnTabloTemizle.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnTabloTemizle.Location = new System.Drawing.Point(594, 491);
+            this.btnTabloTemizle.ForeColor = System.Drawing.Color.White;
+            this.btnTabloTemizle.Location = new System.Drawing.Point(809, 509);
             this.btnTabloTemizle.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnTabloTemizle.Name = "btnTabloTemizle";
             this.btnTabloTemizle.Size = new System.Drawing.Size(128, 71);
@@ -183,7 +188,7 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.ColumnHeadersVisible = false;
             this.dataGridView2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dataGridView2.Location = new System.Drawing.Point(531, 58);
+            this.dataGridView2.Location = new System.Drawing.Point(634, 78);
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(456, 348);
@@ -196,8 +201,8 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Oswald", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label2.Location = new System.Drawing.Point(669, 9);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(748, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(189, 46);
             this.label2.TabIndex = 18;
@@ -208,7 +213,8 @@
             this.btnTamamlandi.BackColor = System.Drawing.Color.Transparent;
             this.btnTamamlandi.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnTamamlandi.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnTamamlandi.Location = new System.Drawing.Point(458, 491);
+            this.btnTamamlandi.ForeColor = System.Drawing.Color.White;
+            this.btnTamamlandi.Location = new System.Drawing.Point(673, 509);
             this.btnTamamlandi.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnTamamlandi.Name = "btnTamamlandi";
             this.btnTamamlandi.Size = new System.Drawing.Size(128, 71);
@@ -219,7 +225,7 @@
             // 
             // txtTamamlananID
             // 
-            this.txtTamamlananID.Location = new System.Drawing.Point(912, 430);
+            this.txtTamamlananID.Location = new System.Drawing.Point(1122, 444);
             this.txtTamamlananID.MaxLength = 30000;
             this.txtTamamlananID.Name = "txtTamamlananID";
             this.txtTamamlananID.Size = new System.Drawing.Size(36, 31);
@@ -232,7 +238,8 @@
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(730, 491);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(945, 509);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 71);
@@ -247,7 +254,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1034, 610);
+            this.ClientSize = new System.Drawing.Size(1104, 621);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtTamamlananID);
             this.Controls.Add(this.btnTamamlandi);
