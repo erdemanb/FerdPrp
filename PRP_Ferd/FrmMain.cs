@@ -30,12 +30,7 @@ namespace PRP_Ferd
         private void FrmMain_Load(object sender, EventArgs e)
         {
             this.DoubleBuffered = true;
-            DateTime dateTime = DateTime.Now;
-            string tarih = dateTime.ToShortDateString();
-            label11.Text = "Bugün " + tarih;
             Bussiness blmain = new Bussiness();
-
-
         }
 
         private void FrmMain_MouseDown(object sender, MouseEventArgs e)

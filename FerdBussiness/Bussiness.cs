@@ -21,15 +21,38 @@ namespace FerdBussiness
         {
             connection = baglanti.GetConnection();
             connection.Open();
-            string createTable1SQL = "CREATE TABLE IF NOT EXISTS Tbl_Isler (\r\n    IsID INTEGER PRIMARY KEY AUTOINCREMENT,\r\n    YapilacakIs VARCHAR(50)\r\n);\r\n" +
-                "CREATE TABLE IF NOT EXISTS Tbl_Tamamlananlar (\r\n YapilanIsID INTEGER PRIMARY KEY AUTOINCREMENT, \r\n    TamamlananIs VARCHAR(50)\r\n);" +
-                "CREATE TABLE IF NOT EXISTS Tbl_Login (\r\n    KullaniciID INTEGER PRIMARY KEY AUTOINCREMENT,\r\n    KullaniciAdi VARCHAR(15),\r\n    Sifre VARCHAR(12)\r\n);\r\n" +
-                "CREATE TABLE IF NOT EXISTS Tbl_Bakiye (\r\n    KarZararID INTEGER PRIMARY KEY AUTOINCREMENT,\r\n    Gelir INT,\r\n    Gider INT,\r\n    KarZarar INT\r\n);\r\n " +
-                "CREATE TABLE IF NOT EXISTS Tbl_Kitaplar (\r\n    KitapID INTEGER PRIMARY KEY AUTOINCREMENT,\r\n    KitapAd VARCHAR(50),\r\n    Yazar VARCHAR(50)\r\n);\r\n\r\n" +
-                "CREATE TABLE IF NOT EXISTS Tbl_Filmler (\r\n    FilmID INTEGER PRIMARY KEY AUTOINCREMENT,\r\n    FilmAd VARCHAR(50),\r\n    FilmTur VARCHAR(50),\r\n    FilmYonetmen VARCHAR(50)\r\n);";
+            string createTableSQL = "CREATE TABLE IF NOT EXISTS Tbl_Isler (" +
+                                     "IsID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                     "YapilacakIs VARCHAR(50)" +
+                                     ");" +
+                                     "CREATE TABLE IF NOT EXISTS Tbl_Tamamlananlar (" +
+                                     "YapilanIsID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                     "TamamlananIs VARCHAR(50)" +
+                                     ");" +
+                                     "CREATE TABLE IF NOT EXISTS Tbl_Login (" +
+                                     "KullaniciID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                     "KullaniciAdi VARCHAR(15)," +
+                                     "Sifre VARCHAR(12)" +
+                                     ");" +
+                                     "CREATE TABLE IF NOT EXISTS Tbl_Kitaplar (" +
+                                     "KitapID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                     "KitapAd VARCHAR(50)," +
+                                     "Yazar VARCHAR(50)" +
+                                     ");" +
+                                     "CREATE TABLE IF NOT EXISTS Tbl_GelirGider (" +
+                                     "GelirGiderID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                     "Ay VARCHAR(10)," +
+                                     "Miktar INTEGER," +
+                                     "GelirGiderAciklama VARCHAR(50)" +
+                                     ");" +
+                                     "CREATE TABLE IF NOT EXISTS Tbl_Filmler (" +
+                                     "FilmID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                     "FilmAd VARCHAR(50)," +
+                                     "FilmTur VARCHAR(50)," +
+                                     "FilmYonetmen VARCHAR(50)" +
+                                     ");";
 
-
-            SQLiteCommand command1 = new SQLiteCommand(createTable1SQL, connection);
+            SQLiteCommand command1 = new SQLiteCommand(createTableSQL, connection);
             command1.ExecuteNonQuery();
             connection.Close();
         }
@@ -48,9 +71,25 @@ namespace FerdBussiness
             {
                 DataTable veriTablosu = new DataTable();
                 adapter.Fill(veriTablosu);
+                connection.Close();
                 return veriTablosu;
             }
-            connection.Close();
+
+        }
+        public DataTable GelirlerVeriListele()
+        {
+            if (connection.State != ConnectionState.Open)
+            {
+                connection.Open();
+            }
+            string SelectSQLBakiye = "SELECT * FROM Tbl_GelirGider";
+            using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(SelectSQLBakiye, connection))
+            {
+                DataTable veriTablosu = new DataTable();
+                adapter.Fill(veriTablosu);
+                connection.Close();
+                return veriTablosu;
+            }
         }
         public DataTable TamamlananlarVeriListele()
         {
@@ -65,28 +104,65 @@ namespace FerdBussiness
             {
                 DataTable veriTablosu = new DataTable();
                 adapter.Fill(veriTablosu);
+                connection.Close();
                 return veriTablosu;
             }
-            connection.Close ();
+
+        }
+        public DataTable AyaGoreListele(string seciliAy)
+        {
+            if(connection.State != ConnectionState.Open)
+            {
+                connection.Open();
+            }
+            string selectSQL = "SELECT * FROM Tbl_GelirGider WHERE Ay = @Ay";
+            using (SQLiteCommand command = new SQLiteCommand(selectSQL, connection))
+            {
+                command.Parameters.AddWithValue("@Ay", seciliAy);
+
+                using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(command))
+                {
+                    DataTable veriTablosu2 = new DataTable();
+                    adapter.Fill(veriTablosu2);
+                    connection.Close() ;
+                    return veriTablosu2;
+                }
+            }
         }
         public void VeriEkleTblIsler(string yapilacakIs)
         {
 
-                if (connection.State != ConnectionState.Open)
-                {
-                    connection.Open();
-                }
+            if (connection.State != ConnectionState.Open)
+            {
+                connection.Open();
+            }
 
-                string insertSQL = "INSERT INTO Tbl_Isler (YapilacakIs) VALUES (@yapilacakIs)";
+            string insertSQL = "INSERT INTO Tbl_Isler (YapilacakIs) VALUES (@yapilacakIs)";
 
-                using (SQLiteCommand command = new SQLiteCommand(insertSQL, connection))
-                {
-                    command.Parameters.AddWithValue("@yapilacakIs", yapilacakIs);
-                    command.ExecuteNonQuery();
-                }
-                connection.Close ();
+            using (SQLiteCommand command = new SQLiteCommand(insertSQL, connection))
+            {
+                command.Parameters.AddWithValue("@yapilacakIs", yapilacakIs);
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+        public void VeriEkleTblGelirGider(int Miktar, string Ay, string Aciklama)
+        {
+            if (connection.State != ConnectionState.Open)
+            {
+                connection.Open();
+            }
 
+            string insertSQL = "INSERT INTO Tbl_GelirGider (Miktar, Ay, GelirGiderAciklama) VALUES (@Miktar, @Ay, @Aciklama)";
 
+            using (SQLiteCommand command = new SQLiteCommand(insertSQL, connection))
+            {
+                command.Parameters.AddWithValue("@Miktar", Miktar);
+                command.Parameters.AddWithValue("@Ay", Ay);
+                command.Parameters.AddWithValue("@Aciklama", Aciklama);
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
         }
         public void VeriEkleTblTamamlananlar(string yapilanIs)
         {
@@ -146,7 +222,7 @@ namespace FerdBussiness
                 connection.Open();
             }
 
-            string deleteSQL = "DELETE FROM Tbl_Isler"; 
+            string deleteSQL = "DELETE FROM Tbl_Isler";
 
             using (SQLiteCommand command = new SQLiteCommand(deleteSQL, connection))
             {
@@ -161,7 +237,7 @@ namespace FerdBussiness
                 connection.Open();
             }
 
-            string deleteSQL = "DELETE FROM Tbl_Tamamlananlar"; 
+            string deleteSQL = "DELETE FROM Tbl_Tamamlananlar";
 
             using (SQLiteCommand command = new SQLiteCommand(deleteSQL, connection))
             {
@@ -201,7 +277,7 @@ namespace FerdBussiness
                 command.Parameters.AddWithValue("@sifre", sifre);
                 command.ExecuteNonQuery();
             }
-            connection.Close ();
+            connection.Close();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FerdBussiness;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -46,6 +47,14 @@ namespace PRP_Ferd
         private void FrmParaYonetimi_Load(object sender, EventArgs e)
         {
             this.DoubleBuffered = true;
+          
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmGelirGider frg = new FrmGelirGider();
+            frg.Show();
         }
     }
 }
