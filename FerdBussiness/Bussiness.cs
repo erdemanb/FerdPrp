@@ -29,11 +29,6 @@ namespace FerdBussiness
                                      "YapilanIsID INTEGER PRIMARY KEY AUTOINCREMENT," +
                                      "TamamlananIs VARCHAR(50)" +
                                      ");" +
-                                     "CREATE TABLE IF NOT EXISTS Tbl_Login (" +
-                                     "KullaniciID INTEGER PRIMARY KEY AUTOINCREMENT," +
-                                     "KullaniciAdi VARCHAR(15)," +
-                                     "Sifre VARCHAR(12)" +
-                                     ");" +
                                      "CREATE TABLE IF NOT EXISTS Tbl_Kitaplar (" +
                                      "KitapID INTEGER PRIMARY KEY AUTOINCREMENT," +
                                      "KitapAd VARCHAR(50)," +
@@ -43,6 +38,7 @@ namespace FerdBussiness
                                      "GelirGiderID INTEGER PRIMARY KEY AUTOINCREMENT," +
                                      "Ay VARCHAR(10)," +
                                      "Miktar INTEGER," +
+                                     "GelirGiderTur VARCHAR(25)," +
                                      "GelirGiderAciklama VARCHAR(50)" +
                                      ");" +
                                      "CREATE TABLE IF NOT EXISTS Tbl_Filmler (" +
@@ -75,6 +71,22 @@ namespace FerdBussiness
                 return veriTablosu;
             }
 
+        }
+        public void IDyeGoreListeleTblGelirGider(int id)
+        {
+            if (connection.State != ConnectionState.Open)
+            {
+                connection.Open();
+            }
+
+            string deleteSQL = "SELECT FROM Tbl_GelirGider WHERE GelirGiderID = @id";
+
+            using (SQLiteCommand command = new SQLiteCommand(deleteSQL, connection))
+            {
+                command.Parameters.AddWithValue("@id", id);
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
         }
         public DataTable GelirlerVeriListele()
         {
@@ -146,22 +158,45 @@ namespace FerdBussiness
             }
             connection.Close();
         }
-        public void VeriEkleTblGelirGider(int Miktar, string Ay, string Aciklama)
+        public void VeriEkleTblGelirGider(int Miktar, string Ay, string Aciklama, string Tur)
         {
             if (connection.State != ConnectionState.Open)
             {
                 connection.Open();
             }
 
-            string insertSQL = "INSERT INTO Tbl_GelirGider (Miktar, Ay, GelirGiderAciklama) VALUES (@Miktar, @Ay, @Aciklama)";
+            string insertSQL = "INSERT INTO Tbl_GelirGider (Miktar, Ay, GelirGiderAciklama, GelirGiderTur) VALUES (@Miktar, @Ay, @Aciklama, @Tur)";
 
             using (SQLiteCommand command = new SQLiteCommand(insertSQL, connection))
             {
                 command.Parameters.AddWithValue("@Miktar", Miktar);
                 command.Parameters.AddWithValue("@Ay", Ay);
                 command.Parameters.AddWithValue("@Aciklama", Aciklama);
+                command.Parameters.AddWithValue("@Tur", Tur);
                 command.ExecuteNonQuery();
             }
+            connection.Close();
+        }
+        public void VeriGuncelleTblGelirGider(string guncelAy, string guncelAciklama, int guncelMiktar, int id, string guncelTur)
+        {
+            if (connection.State != ConnectionState.Open)
+            {
+                connection.Open();
+            }
+
+            string updateSQL = "UPDATE Tbl_GelirGider SET GelirGiderAciklama = @guncelAciklama, Ay = @guncelAy, Miktar = @guncelMiktar, GelirGiderTur= @guncelTur WHERE GelirGiderID = @id";
+
+            using (SQLiteCommand command = new SQLiteCommand(updateSQL, connection))
+            {
+                command.Parameters.AddWithValue("@guncelAciklama", guncelAciklama);
+                command.Parameters.AddWithValue("@guncelTur", guncelTur);
+                command.Parameters.AddWithValue("@guncelAy", guncelAy);
+                command.Parameters.AddWithValue("@guncelMiktar", guncelMiktar);
+                command.Parameters.AddWithValue("@id", id);
+
+                command.ExecuteNonQuery();
+            }
+
             connection.Close();
         }
         public void VeriEkleTblTamamlananlar(string yapilanIs)
@@ -215,6 +250,22 @@ namespace FerdBussiness
             }
             connection.Close();
         }
+        public void SatirSilTblGelirGider(int id)
+        {
+            if (connection.State != ConnectionState.Open)
+            {
+                connection.Open();
+            }
+
+            string deleteSQL = "DELETE FROM Tbl_GelirGider WHERE GelirGiderID = @id";
+
+            using (SQLiteCommand command = new SQLiteCommand(deleteSQL, connection))
+            {
+                command.Parameters.AddWithValue("@id", id);
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
         public void TumVerileriSilTblIsler()
         {
             if (connection.State != ConnectionState.Open)
@@ -241,6 +292,37 @@ namespace FerdBussiness
 
             using (SQLiteCommand command = new SQLiteCommand(deleteSQL, connection))
             {
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+        public void TumVerileriSilTblGelirGider()
+        {
+            if (connection.State != ConnectionState.Open)
+            {
+                connection.Open();
+            }
+
+            string deleteSQL = "DELETE FROM Tbl_GelirGider";
+
+            using (SQLiteCommand command = new SQLiteCommand(deleteSQL, connection))
+            {
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+        public void AyaGoreVeriSilTblGelirGider(string seciliay)
+        {
+            if (connection.State != ConnectionState.Open)
+            {
+                connection.Open();
+            }
+
+            string deleteSQL = "DELETE FROM Tbl_GelirGider WHERE Ay = @p1";
+
+            using (SQLiteCommand command = new SQLiteCommand(deleteSQL, connection))
+            {
+                command.Parameters.AddWithValue("@p1", seciliay);
                 command.ExecuteNonQuery();
             }
             connection.Close();

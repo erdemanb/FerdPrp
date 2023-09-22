@@ -52,7 +52,9 @@
             // btnEkle
             // 
             this.btnEkle.BackColor = System.Drawing.Color.Transparent;
-            this.btnEkle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEkle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEkle.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnEkle.ForeColor = System.Drawing.Color.White;
             this.btnEkle.Location = new System.Drawing.Point(265, 508);
@@ -67,7 +69,10 @@
             // btnSil
             // 
             this.btnSil.BackColor = System.Drawing.Color.Transparent;
-            this.btnSil.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSil.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.btnSil.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnSil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSil.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSil.ForeColor = System.Drawing.Color.White;
             this.btnSil.Location = new System.Drawing.Point(401, 508);
@@ -82,7 +87,10 @@
             // btnGuncelle
             // 
             this.btnGuncelle.BackColor = System.Drawing.Color.Transparent;
-            this.btnGuncelle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuncelle.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.btnGuncelle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnGuncelle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuncelle.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnGuncelle.ForeColor = System.Drawing.Color.White;
             this.btnGuncelle.Location = new System.Drawing.Point(537, 508);
@@ -168,7 +176,10 @@
             // btnTabloTemizle
             // 
             this.btnTabloTemizle.BackColor = System.Drawing.Color.Transparent;
-            this.btnTabloTemizle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTabloTemizle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTabloTemizle.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.btnTabloTemizle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnTabloTemizle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTabloTemizle.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnTabloTemizle.ForeColor = System.Drawing.Color.White;
             this.btnTabloTemizle.Location = new System.Drawing.Point(809, 509);
@@ -211,7 +222,10 @@
             // btnTamamlandi
             // 
             this.btnTamamlandi.BackColor = System.Drawing.Color.Transparent;
-            this.btnTamamlandi.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTamamlandi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTamamlandi.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.btnTamamlandi.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnTamamlandi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTamamlandi.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnTamamlandi.ForeColor = System.Drawing.Color.White;
             this.btnTamamlandi.Location = new System.Drawing.Point(673, 509);
@@ -236,7 +250,10 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(945, 509);

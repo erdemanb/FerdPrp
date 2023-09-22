@@ -34,20 +34,31 @@ namespace PRP_Ferd
         {
             DoubleBuffered = true;
             cmbAylar.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbTur.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbTur.SelectedIndex = 7;
             DateTime simdikiTarih = DateTime.Now;
             cmbAylar.SelectedIndex = simdikiTarih.Month - 1;
             dataGridView1.DataSource = bl.GelirlerVeriListele();
+            ToplamaIslemi();
             dataGridView1.Columns["GelirGiderID"].Visible = false;
             DataGridOzellikler(dataGridView1);
+            dataGridView1.ClearSelection();
             dataGridView1.MultiSelect = false;
             dataGridView1.RowHeadersVisible = false;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect; 
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Columns[1].HeaderText = "Ay";
             dataGridView1.Columns[2].HeaderText = "Miktar";
-            dataGridView1.Columns[3].HeaderText = "Açıklama";
+            dataGridView1.Columns[3].HeaderText = "Tür";
+            dataGridView1.Columns[4].HeaderText = "Açıklama";
             dataGridView1.Columns["Miktar"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView1.Columns["Ay"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridView1.Columns["GelirGiderTur"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            txtAciklama.Clear();
+            txtMiktar.Clear();
+            txtMiktar.Focus();
+
         }
+
         private void DataGridOzellikler(DataGridView geneldatagv)
         {
 
@@ -56,7 +67,9 @@ namespace PRP_Ferd
             geneldatagv.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             geneldatagv.ReadOnly = true;
 
+
         }
+
         private void FrmGelirGider_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -70,12 +83,20 @@ namespace PRP_Ferd
         {
             try
             {
-                bl.VeriEkleTblGelirGider(int.Parse(txtMiktar.Text), cmbAylar.Text, txtAciklama.Text);
+                bl.VeriEkleTblGelirGider(int.Parse(txtMiktar.Text), cmbAylar.Text, txtAciklama.Text,cmbTur.Text);
             }
             catch (Exception)
             {
                 MessageBox.Show("Miktar Boş Geçilemez!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            dataGridView1.DataSource = bl.AyaGoreListele(cmbAylar.Text);
+            ayListelemeModu = true;
+            btnAyaGoreListele.Text = "Genel Listeye Dön";
+            ToplamaIslemi();
+            dataGridView1.ClearSelection();
+            txtAciklama.Clear();
+            txtMiktar.Clear();
+            txtMiktar.Focus();
         }
 
         private void btnGiderEkle_Click(object sender, EventArgs e)
@@ -83,17 +104,27 @@ namespace PRP_Ferd
             int gider;
             try
             {
-                gider =(-1) *  int.Parse(txtMiktar.Text);
-                bl.VeriEkleTblGelirGider(gider, cmbAylar.Text, txtAciklama.Text);
+                gider = (-1) * int.Parse(txtMiktar.Text);
+                bl.VeriEkleTblGelirGider(gider, cmbAylar.Text, txtAciklama.Text, cmbTur.Text);
             }
             catch (Exception)
             {
                 MessageBox.Show("Miktar Boş Geçilemez!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            dataGridView1.DataSource = bl.AyaGoreListele(cmbAylar.Text);
+            ayListelemeModu = true;
+            btnAyaGoreListele.Text = "Genel Listeye Dön";
+            ToplamaIslemi();
+            dataGridView1.ClearSelection();
+            txtAciklama.Clear();
+            txtMiktar.Clear();
+            txtMiktar.Focus();
+
+
         }
 
-       
-
+        private bool negatifguncelleme = false;//Gider ekle butonuyla tabloya eklediğimiz veri negatife döndüğünden ve bu veriyi cellclick olayıyla textboxa çekerken tekrar pozitife dönmesini sağladığımızdan, negatif verilerde güncelleme olayını negatif yapmasını sağlamak için bir boolean tutuyoruz. 
+        
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
@@ -101,23 +132,64 @@ namespace PRP_Ferd
                 try
                 {
                     lblID.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    txtAciklama.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    cmbTur.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString(); 
+                    int a = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    if(a<0) { negatifguncelleme=true; }
+                    else if(a>=0) { negatifguncelleme = false; }
+                    txtMiktar.Text = Math.Abs(a).ToString();
+                    cmbAylar.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 }
                 catch (Exception)
                 {
 
-                    MessageBox.Show("ID Değeri Bulunamadı!!!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Seçtiğiniz satırda veri yok.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
             }
         }
+
         private bool ayListelemeModu = false;
+
         private void btnAyaGoreListele_Click(object sender, EventArgs e)
+        {
+            PLAyaGoreListele();
+            dataGridView1.ClearSelection();
+            txtAciklama.Clear();
+            txtMiktar.Clear();
+            txtMiktar.Focus();
+        }
+
+        private void ToplamaIslemi()
+        {
+            int columnIndexToSum = 2; 
+
+            int toplam = 0;
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[columnIndexToSum].Value != null)
+                {
+                    int cellValue;
+                    if (int.TryParse(row.Cells[columnIndexToSum].Value.ToString(), out cellValue))
+                    {
+                        toplam += cellValue;
+                    }
+                }
+            }
+            if (toplam > 0) {lblToplam.ForeColor = Color.LightGreen;}else if (toplam < 0) {  lblToplam.ForeColor = Color.LightSalmon;} else { lblToplam.ForeColor= Color.White;}
+            lblToplam.Text = "TOPLAM:  " + toplam.ToString();
+            
+        }
+
+        private void PLAyaGoreListele()
         {
             if (ayListelemeModu)
             {
                 dataGridView1.DataSource = bl.GelirlerVeriListele();
                 ayListelemeModu = false;
                 btnAyaGoreListele.Text = "Ay'a Göre Listele";
+                ToplamaIslemi();
             }
             else
             {
@@ -126,15 +198,15 @@ namespace PRP_Ferd
                     dataGridView1.DataSource = bl.AyaGoreListele(cmbAylar.Text);
                     ayListelemeModu = true;
                     btnAyaGoreListele.Text = "Genel Listeye Dön";
+                    ToplamaIslemi();
                 }
                 catch (Exception)
                 {
                     MessageBox.Show("Seçili bir ay olduğuna emin olunuz!!!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
-
         }
+
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
 
@@ -165,6 +237,107 @@ namespace PRP_Ferd
             this.Hide();
             FrmParaYonetimi frmy = new FrmParaYonetimi();
             frmy.Show();
+        }
+
+        private void txtMiktar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Etkisiz hale getirme
+            }
+
+        }
+
+        private void btnGelirSil_Click(object sender, EventArgs e)
+        {
+            bl.SatirSilTblGelirGider(int.Parse(lblID.Text));
+            if (btnAyaGoreListele.Text == "Genel Listeye Dön")
+            {
+                ayListelemeModu = false;
+                PLAyaGoreListele();
+            }
+            else
+            {
+                dataGridView1.DataSource = bl.GelirlerVeriListele();
+            }
+            dataGridView1.ClearSelection();
+            txtAciklama.Clear();
+            txtMiktar.Clear();
+            txtMiktar.Focus();
+        }
+
+        private void btnGuncelle_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string aciklama = txtAciklama.Text;
+                int gunceldeger = int.Parse(txtMiktar.Text);
+                if(negatifguncelleme == true) 
+                {
+                    gunceldeger = gunceldeger * (-1); 
+                }
+                bl.VeriGuncelleTblGelirGider(cmbAylar.Text, aciklama, gunceldeger, int.Parse(lblID.Text),cmbTur.Text);
+                if (btnAyaGoreListele.Text == "Genel Listeye Dön")
+                {
+                    PLAyaGoreListele();
+                }
+                else
+                {
+                    dataGridView1.DataSource = bl.GelirlerVeriListele();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Güncelleme işlemi yapılamadı,bir satırın seçili olduğundan gerekli boşlukları doldurduğunuzdan emin olunuz.","Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            dataGridView1.ClearSelection();
+            txtAciklama.Clear();
+            txtMiktar.Clear();
+            txtMiktar.Focus();
+
+        }
+
+        private void btnTumVeriyiSil_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Gelir-Gider tablosundaki tüm veriler geri yüklenemez şekilde silinecektir, devam etmek istediğinize emin misiniz?", "Uyarı", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.OK)
+            {
+                Bussiness bl = new Bussiness();
+                bl.TumVerileriSilTblGelirGider();
+                MessageBox.Show("Gelir-Gider tablosu tamamen temizlenmiştir.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dataGridView1.DataSource = bl.GelirlerVeriListele();
+                ToplamaIslemi();
+
+            }
+            else if (result == DialogResult.Cancel)
+            {
+                MessageBox.Show("İşlem iptal edildi.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(cmbAylar.Text + " ayına ait tüm veriler geri yüklenemez şekilde silinecektir, devam etmek istediğinize emin misiniz?", "Uyarı", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.OK)
+            {
+                Bussiness bl = new Bussiness();
+                bl.AyaGoreVeriSilTblGelirGider(cmbAylar.Text);
+                MessageBox.Show(cmbAylar.Text + " ayına ait tüm veriler tamamen temizlenmiştir.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dataGridView1.DataSource = bl.GelirlerVeriListele();
+                ToplamaIslemi();
+                dataGridView1.ClearSelection();
+
+            }
+            else if (result == DialogResult.Cancel)
+            {
+                MessageBox.Show("İşlem iptal edildi.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
         }
     }
 }

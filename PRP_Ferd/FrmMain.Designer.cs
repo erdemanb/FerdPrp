@@ -54,12 +54,14 @@ namespace PRP_Ferd
             // 
             // btnYapilacaklar
             // 
-            this.btnYapilacaklar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnYapilacaklar.BackColor = System.Drawing.Color.Transparent;
             this.btnYapilacaklar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnYapilacaklar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnYapilacaklar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnYapilacaklar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnYapilacaklar.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnYapilacaklar.ForeColor = System.Drawing.Color.White;
-            this.btnYapilacaklar.Location = new System.Drawing.Point(510, 208);
+            this.btnYapilacaklar.Location = new System.Drawing.Point(533, 241);
             this.btnYapilacaklar.Name = "btnYapilacaklar";
             this.btnYapilacaklar.Size = new System.Drawing.Size(202, 53);
             this.btnYapilacaklar.TabIndex = 12;
@@ -71,10 +73,12 @@ namespace PRP_Ferd
             // 
             this.btnFilmler.BackColor = System.Drawing.Color.Transparent;
             this.btnFilmler.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnFilmler.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFilmler.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFilmler.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnFilmler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFilmler.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnFilmler.ForeColor = System.Drawing.Color.White;
-            this.btnFilmler.Location = new System.Drawing.Point(673, 385);
+            this.btnFilmler.Location = new System.Drawing.Point(696, 418);
             this.btnFilmler.Name = "btnFilmler";
             this.btnFilmler.Size = new System.Drawing.Size(202, 53);
             this.btnFilmler.TabIndex = 13;
@@ -85,10 +89,12 @@ namespace PRP_Ferd
             // 
             this.btnKitaplar.BackColor = System.Drawing.Color.Transparent;
             this.btnKitaplar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnKitaplar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnKitaplar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnKitaplar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnKitaplar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKitaplar.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnKitaplar.ForeColor = System.Drawing.Color.White;
-            this.btnKitaplar.Location = new System.Drawing.Point(618, 326);
+            this.btnKitaplar.Location = new System.Drawing.Point(641, 359);
             this.btnKitaplar.Name = "btnKitaplar";
             this.btnKitaplar.Size = new System.Drawing.Size(202, 53);
             this.btnKitaplar.TabIndex = 14;
@@ -99,10 +105,12 @@ namespace PRP_Ferd
             // 
             this.btnParaYonetimi.BackColor = System.Drawing.Color.Transparent;
             this.btnParaYonetimi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnParaYonetimi.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnParaYonetimi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnParaYonetimi.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnParaYonetimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnParaYonetimi.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnParaYonetimi.ForeColor = System.Drawing.Color.White;
-            this.btnParaYonetimi.Location = new System.Drawing.Point(561, 267);
+            this.btnParaYonetimi.Location = new System.Drawing.Point(584, 300);
             this.btnParaYonetimi.Name = "btnParaYonetimi";
             this.btnParaYonetimi.Size = new System.Drawing.Size(202, 53);
             this.btnParaYonetimi.TabIndex = 15;

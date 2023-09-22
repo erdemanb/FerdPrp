@@ -38,6 +38,8 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 2;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Location = new System.Drawing.Point(115, 168);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -51,6 +53,8 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderSize = 2;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Location = new System.Drawing.Point(115, 228);
             this.button2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
