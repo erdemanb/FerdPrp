@@ -159,6 +159,56 @@ namespace FerdBussiness
 
             return dataTable;
         }
+        public DataTable GiderTureGoreGetirAy(string ay)
+        {
+            if (connection.State != ConnectionState.Open)
+            {
+                connection.Open();
+            }
+
+            string selectSQL = "SELECT GelirGiderTur, SUM(CASE WHEN Miktar < 0 THEN Miktar ELSE 0 END) AS Giderler \r\n" +
+                               "FROM Tbl_GelirGider \r\n" +
+                               "WHERE Miktar < 0 \r\n" +
+                               "AND Ay = @Ay \r\n" +
+                               "GROUP BY GelirGiderTur";
+
+            SQLiteCommand cmd = new SQLiteCommand(selectSQL, connection);
+            cmd.Parameters.AddWithValue("@Ay", ay);
+
+            SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
+
+            DataTable dataTable = new DataTable();
+            da.Fill(dataTable);
+
+            connection.Close();
+
+            return dataTable;
+        }
+        public DataTable GelirTureGoreGetirAy(string ay)
+        {
+            if (connection.State != ConnectionState.Open)
+            {
+                connection.Open();
+            }
+
+            string selectSQL = "SELECT GelirGiderTur, SUM(CASE WHEN Miktar > 0 THEN Miktar ELSE 0 END) AS Gelirler \r\n" +
+                               "FROM Tbl_GelirGider \r\n" +
+                               "WHERE Miktar < 0 \r\n" +
+                               "AND Ay = @Ay \r\n" +
+                               "GROUP BY GelirGiderTur";
+
+            SQLiteCommand cmd = new SQLiteCommand(selectSQL, connection);
+            cmd.Parameters.AddWithValue("@Ay", ay);
+
+            SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
+
+            DataTable dataTable = new DataTable();
+            da.Fill(dataTable);
+
+            connection.Close();
+
+            return dataTable;
+        }
         public DataTable GelirTureGoreGetir()
         {
             if (connection.State != ConnectionState.Open)

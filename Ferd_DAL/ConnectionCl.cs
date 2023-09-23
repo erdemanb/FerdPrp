@@ -9,7 +9,7 @@ namespace Ferd_DAL
 {
     public class ConnectionCl
     {
-        private string cncstr = "Data Source=C:\\DbForFerd\\DataBaseFerd.db;Version=3;";
+        private string cncstr = "Data Source=C:\\ProgramData\\DataBaseFerd.db;Version=3;";
 
         public SQLiteConnection GetConnection()
         {

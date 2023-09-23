@@ -31,11 +31,13 @@ namespace PRP_Ferd
         private void FrmGrafikler_Load(object sender, EventArgs e)
         {
             DoubleBuffered = true;
+            cmbAylarGraf.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbAylarGraf.Text = "Tüm Yıl";
             chartAylar.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Oswald", 10, FontStyle.Bold);
             chartAylar.ChartAreas[0].AxisY.LabelStyle.Font = new Font("Oswald", 10, FontStyle.Bold);
             chartAylar.ChartAreas[0].AxisX.Interval = 1;
-            chartAylar.Series["Negatif"].Color = Color.Red;
-            chartAylar.Series["Pozitif"].Color = Color.Green;
+            chartAylar.Series["Giderler"].Color = Color.Red;
+            chartAylar.Series["Gelirler"].Color = Color.Green;
             chartAylar.Series["Toplam"].Color = Color.Blue;
             DataTable originalData = blc.MiktarlarToplamiGetir();
             string[] aylar = { "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık" };
@@ -55,8 +57,8 @@ namespace PRP_Ferd
                     sortedData.Rows.Add(ay, negatifMiktar, pozitifMiktar, toplamMiktar);
                 }
             }
-            chartAylar.Series["Negatif"].Points.DataBind(sortedData.AsEnumerable(), "Ay", "NegatifMiktar", "");
-            chartAylar.Series["Pozitif"].Points.DataBind(sortedData.AsEnumerable(), "Ay", "PozitifMiktar", "");
+            chartAylar.Series["Giderler"].Points.DataBind(sortedData.AsEnumerable(), "Ay", "NegatifMiktar", "");
+            chartAylar.Series["Gelirler"].Points.DataBind(sortedData.AsEnumerable(), "Ay", "PozitifMiktar", "");
             chartAylar.Series["Toplam"].Points.DataBind(sortedData.AsEnumerable(), "Ay", "ToplamMiktar", "");
         }
         private void FrmGrafikler_MouseDown(object sender, MouseEventArgs e)
@@ -74,12 +76,16 @@ namespace PRP_Ferd
             {
                 button2.Text = "Gelir-Gider Türleri Pasta Grafikler";
                 chartAylar.Visible = true;
+                btnAyaGoreListele.Visible = false;
+                cmbAylarGraf.Visible = false;
                 chartTurler.Visible = false;
                 chartTurler2.Visible = false;
             }
             else
             {
                 button2.Text = "Aylık Sütun Grafik";
+                cmbAylarGraf.Visible = true;
+                btnAyaGoreListele.Visible = true;
                 chartAylar.Visible = false;
                 chartTurler.Visible = true;
                 chartTurler2.Visible = true;
@@ -153,12 +159,90 @@ namespace PRP_Ferd
             chartTurler.DataSource = blc.GiderTureGoreGetir();
             chartTurler.DataBind();
         }
+        private void GiderlerPastaGrafikAyaGore()
+        {
+            //Aşağıdaki kısımların tuhaf gözüktüğünün farkındayım, fakat yazış biçimi olarak denediğim diğer her şeyde chart'taki görüntüler açısından sorunla karşılaştım. 
+            chartTurler.Series["Kira"].XValueMember = "GelirGiderTur";
+            chartTurler.Series["Kira"].YValueMembers = "Giderler";
+            chartTurler.Series["Aidat"].XValueMember = "GelirGiderTur";
+            chartTurler.Series["Aidat"].YValueMembers = "Giderler";
+            chartTurler.Series["Maaş"].XValueMember = "GelirGiderTur";
+            chartTurler.Series["Maaş"].YValueMembers = "Giderler";
+            chartTurler.Series["Borsa"].XValueMember = "GelirGiderTur";
+            chartTurler.Series["Borsa"].YValueMembers = "Giderler";
+            chartTurler.Series["Fatura"].XValueMember = "GelirGiderTur";
+            chartTurler.Series["Fatura"].YValueMembers = "Giderler";
+            chartTurler.Series["Alışveriş"].XValueMember = "GelirGiderTur";
+            chartTurler.Series["Alışveriş"].YValueMembers = "Giderler";
+            chartTurler.Series["Market"].XValueMember = "GelirGiderTur";
+            chartTurler.Series["Market"].YValueMembers = "Giderler";
+            chartTurler.Series["Diğer"].XValueMember = "GelirGiderTur";
+            chartTurler.Series["Diğer"].YValueMembers = "Giderler";
+            chartTurler.Series["Eğlence"].XValueMember = "GelirGiderTur";
+            chartTurler.Series["Eğlence"].YValueMembers = "Giderler";
+            chartTurler.Series["Kira"]["PieLabelStyle"] = "Disabled";
+            chartTurler.Series["Kira"]["PieLabelStyle"] = "Outside";
+            chartTurler.Series["Kira"]["PieLineColor"] = "Black";
+            chartTurler.Series["Kira"].Font = new Font("Oswald", 12, FontStyle.Bold);
+            chartTurler.Series["Kira"].Label = "#PERCENT{P1}";
+            chartTurler.Series["Kira"].LegendText = "#AXISLABEL";
+            chartTurler.Legends[0].Font = new Font("Oswald", 12, FontStyle.Bold);
+                chartTurler.DataSource = blc.GiderTureGoreGetirAy(cmbAylarGraf.Text);
+                chartTurler.DataBind();
 
+
+        }
+        private void GelirlerPastaGrafikAyaGore()
+        {
+            //Aşağıdaki kısımların tuhaf gözüktüğünün farkındayım, fakat yazış biçimi olarak denediğim diğer her şeyde chart'taki görüntüler açısından sorunla karşılaştım. 
+            chartTurler2.Series["Kira"].XValueMember = "GelirGiderTur";
+            chartTurler2.Series["Kira"].YValueMembers = "Gelirler";
+            chartTurler2.Series["Aidat"].XValueMember = "GelirGiderTur";
+            chartTurler2.Series["Aidat"].YValueMembers = "Gelirler";
+            chartTurler2.Series["Maaş"].XValueMember = "GelirGiderTur";
+            chartTurler2.Series["Maaş"].YValueMembers = "Gelirler";
+            chartTurler2.Series["Borsa"].XValueMember = "GelirGiderTur";
+            chartTurler2.Series["Borsa"].YValueMembers = "Gelirler";
+            chartTurler2.Series["Fatura"].XValueMember = "GelirGiderTur";
+            chartTurler2.Series["Fatura"].YValueMembers = "Gelirler";
+            chartTurler2.Series["Alışveriş"].XValueMember = "GelirGiderTur";
+            chartTurler2.Series["Alışveriş"].YValueMembers = "Gelirler";
+            chartTurler2.Series["Market"].XValueMember = "GelirGiderTur";
+            chartTurler2.Series["Market"].YValueMembers = "Gelirler";
+            chartTurler2.Series["Diğer"].XValueMember = "GelirGiderTur";
+            chartTurler2.Series["Diğer"].YValueMembers = "Gelirler";
+            chartTurler2.Series["Eğlence"].XValueMember = "GelirGiderTur";
+            chartTurler2.Series["Eğlence"].YValueMembers = "Gelirler";
+            chartTurler2.Series["Kira"]["PieLabelStyle"] = "Disabled";
+            chartTurler2.Series["Kira"]["PieLabelStyle"] = "Outside";
+            chartTurler2.Series["Kira"]["PieLineColor"] = "Black";
+            chartTurler2.Series["Kira"].Font = new Font("Oswald", 12, FontStyle.Bold);
+            chartTurler2.Series["Kira"].Label = "#PERCENT{P1}";
+            chartTurler2.Series["Kira"].LegendText = "#AXISLABEL";
+            chartTurler2.Legends[0].Font = new Font("Oswald", 12, FontStyle.Bold);
+            chartTurler2.DataSource = blc.GelirTureGoreGetirAy(cmbAylarGraf.Text);
+            chartTurler2.DataBind();
+        }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Hide();
             FrmParaYonetimi frmParaYonetimi = new FrmParaYonetimi();
             frmParaYonetimi.Show();
+        }
+
+        private void btnAyaGoreListele_Click(object sender, EventArgs e)
+        {
+            if (cmbAylarGraf.Text == "Tüm Yıl")
+            {
+                GiderlerPastaGrafik();
+                GelirlerPastaGrafik();
+            }
+            else
+            {
+                GiderlerPastaGrafikAyaGore();
+                GelirlerPastaGrafikAyaGore();
+            }
+
         }
     }
 }

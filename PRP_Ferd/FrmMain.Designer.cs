@@ -41,7 +41,7 @@ namespace PRP_Ferd
             this.btnYapilacaklar.BackColor = System.Drawing.Color.Transparent;
             this.btnYapilacaklar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnYapilacaklar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnYapilacaklar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnYapilacaklar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateBlue;
             this.btnYapilacaklar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnYapilacaklar.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnYapilacaklar.ForeColor = System.Drawing.Color.White;
@@ -58,7 +58,7 @@ namespace PRP_Ferd
             this.btnParaYonetimi.BackColor = System.Drawing.Color.Transparent;
             this.btnParaYonetimi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnParaYonetimi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnParaYonetimi.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnParaYonetimi.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateBlue;
             this.btnParaYonetimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnParaYonetimi.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnParaYonetimi.ForeColor = System.Drawing.Color.White;
@@ -75,7 +75,7 @@ namespace PRP_Ferd
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateBlue;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button1.ForeColor = System.Drawing.Color.White;

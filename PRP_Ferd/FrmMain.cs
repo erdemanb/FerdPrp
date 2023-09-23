@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace PRP_Ferd
 {
@@ -24,6 +25,7 @@ namespace PRP_Ferd
         private static extern bool ReleaseCapture();
         public FrmMain()
         {
+
             InitializeComponent();
         }
 
