@@ -56,5 +56,12 @@ namespace PRP_Ferd
             FrmGelirGider frg = new FrmGelirGider();
             frg.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmGrafikler frg = new FrmGrafikler();  
+            frg.Show();
+        }
     }
 }

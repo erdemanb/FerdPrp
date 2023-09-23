@@ -30,7 +30,8 @@ namespace PRP_Ferd
             InitializeComponent();
         }
         Bussiness bl = new Bussiness();
-        private void FrmGelirGider_Load(object sender, EventArgs e)
+
+        public void FrmGelirGider_Load(object sender, EventArgs e)
         {
             DoubleBuffered = true;
             cmbAylar.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -58,6 +59,7 @@ namespace PRP_Ferd
             txtMiktar.Focus();
 
         }
+ 
 
         private void DataGridOzellikler(DataGridView geneldatagv)
         {
@@ -339,5 +341,6 @@ namespace PRP_Ferd
 
             }
         }
+
     }
 }

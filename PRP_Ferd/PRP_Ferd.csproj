@@ -72,6 +72,12 @@
     <Compile Include="FrmGelirGider.Designer.cs">
       <DependentUpon>FrmGelirGider.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmGrafikler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGrafikler.Designer.cs">
+      <DependentUpon>FrmGrafikler.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLoginPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmGelirGider.resx">
       <DependentUpon>FrmGelirGider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGrafikler.resx">
+      <DependentUpon>FrmGrafikler.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLoginPage.resx">
       <DependentUpon>FrmLoginPage.cs</DependentUpon>

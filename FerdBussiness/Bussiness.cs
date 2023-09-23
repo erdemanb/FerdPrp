@@ -123,7 +123,7 @@ namespace FerdBussiness
         }
         public DataTable AyaGoreListele(string seciliAy)
         {
-            if(connection.State != ConnectionState.Open)
+            if (connection.State != ConnectionState.Open)
             {
                 connection.Open();
             }
@@ -136,11 +136,49 @@ namespace FerdBussiness
                 {
                     DataTable veriTablosu2 = new DataTable();
                     adapter.Fill(veriTablosu2);
-                    connection.Close() ;
+                    connection.Close();
                     return veriTablosu2;
                 }
             }
         }
+
+        public DataTable NegatifMiktarlarToplamiGetir()
+        {
+            if (connection.State != ConnectionState.Open)
+            {
+                connection.Open();
+            }
+
+            string selectSQL = "SELECT\r\n    Ay,\r\n    SUM(CASE WHEN Miktar < 0 THEN Miktar ELSE 0 END) AS NegatifMiktar,\r\n    SUM(CASE WHEN Miktar >= 0 THEN Miktar ELSE 0 END) AS PozitifMiktar,\r\n    SUM(Miktar) AS ToplamMiktar\r\nFROM\r\n    Tbl_GelirGider\r\nGROUP BY\r\n    Ay";
+
+            SQLiteDataAdapter da = new SQLiteDataAdapter(selectSQL, connection);
+
+            DataTable dataTable = new DataTable();
+            da.Fill(dataTable);
+
+            connection.Close();
+
+            return dataTable;
+        }
+        public DataTable PozitifMiktarlarToplamiGetir()
+        {
+            if (connection.State != ConnectionState.Open)
+            {
+                connection.Open();
+            }
+
+            string selectSQL = "SELECT Ay, SUM(Miktar) AS NegatifMiktar FROM Tbl_GelirGider WHERE Miktar >= 0 GROUP BY Ay";
+
+            SQLiteDataAdapter da = new SQLiteDataAdapter(selectSQL, connection);
+
+            DataTable dataTable = new DataTable();
+            da.Fill(dataTable);
+
+            connection.Close();
+
+            return dataTable;
+        }
+
         public void VeriEkleTblIsler(string yapilacakIs)
         {
 
