@@ -141,8 +141,43 @@ namespace FerdBussiness
                 }
             }
         }
+        public DataTable GiderTureGoreGetir()
+        {
+            if (connection.State != ConnectionState.Open)
+            {
+                connection.Open();
+            }
 
-        public DataTable NegatifMiktarlarToplamiGetir()
+            string selectSQL = "SELECT GelirGiderTur, SUM(CASE WHEN Miktar < 0 THEN Miktar ELSE 0 END) AS Giderler \r\nFROM Tbl_GelirGider \r\nWHERE Miktar < 0 \r\nGROUP BY GelirGiderTur";
+
+            SQLiteDataAdapter da = new SQLiteDataAdapter(selectSQL, connection);
+
+            DataTable dataTable = new DataTable();
+            da.Fill(dataTable);
+
+            connection.Close();
+
+            return dataTable;
+        }
+        public DataTable GelirTureGoreGetir()
+        {
+            if (connection.State != ConnectionState.Open)
+            {
+                connection.Open();
+            }
+
+            string selectSQL = "SELECT GelirGiderTur, SUM(Miktar) AS Gelirler \r\nFROM Tbl_GelirGider \r\nWHERE Miktar > 0 \r\nGROUP BY GelirGiderTur";
+
+            SQLiteDataAdapter da = new SQLiteDataAdapter(selectSQL, connection);
+
+            DataTable dataTable = new DataTable();
+            da.Fill(dataTable);
+
+            connection.Close();
+
+            return dataTable;
+        }
+        public DataTable MiktarlarToplamiGetir()
         {
             if (connection.State != ConnectionState.Open)
             {

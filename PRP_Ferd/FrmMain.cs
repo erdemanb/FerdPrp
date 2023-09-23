@@ -50,10 +50,6 @@ namespace PRP_Ferd
             fry.Show();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
 
         private void btnParaYonetimi_Click(object sender, EventArgs e)
         {
@@ -61,6 +57,11 @@ namespace PRP_Ferd
             FrmParaYonetimi frp = new FrmParaYonetimi();
             frp.Show();
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
