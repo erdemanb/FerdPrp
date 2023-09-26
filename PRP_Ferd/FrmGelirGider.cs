@@ -36,7 +36,7 @@ namespace PRP_Ferd
             DoubleBuffered = true;
             cmbAylar.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTur.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbTur.SelectedIndex = 7;
+            cmbTur.SelectedIndex = 8;
             DateTime simdikiTarih = DateTime.Now;
             cmbAylar.SelectedIndex = simdikiTarih.Month - 1;
             dataGridView1.DataSource = bl.GelirlerVeriListele();
@@ -342,5 +342,74 @@ namespace PRP_Ferd
             }
         }
 
+        private void btnGelirSil_Enter(object sender, EventArgs e)
+        {
+            btnGelirSil.BackColor = Color.SteelBlue;
+        }
+
+        private void btnGelirSil_Leave(object sender, EventArgs e)
+        {
+            btnGelirSil.BackColor= Color.Transparent;
+        }
+
+        private void btnGelirEkle_Enter(object sender, EventArgs e)
+        {
+            btnGelirEkle.BackColor = Color.SteelBlue;
+        }
+
+        private void btnGelirEkle_Leave(object sender, EventArgs e)
+        {
+            btnGelirEkle.BackColor = Color.Transparent;
+        }
+
+        private void btnGiderEkle_Leave(object sender, EventArgs e)
+        {
+            btnGiderEkle.BackColor = Color.Transparent;
+        }
+
+        private void btnGuncelle_Leave(object sender, EventArgs e)
+        {
+            btnGuncelle.BackColor = Color.Transparent;  
+        }
+
+        private void btnAyaGoreListele_Leave(object sender, EventArgs e)
+        {
+            btnAyaGoreListele.BackColor = Color.Transparent;
+        }
+
+        private void button1_Leave(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.Transparent;
+        }
+
+        private void btnTumVeriyiSil_Leave(object sender, EventArgs e)
+        {
+            btnTumVeriyiSil.BackColor = Color.Transparent;  
+        }
+
+        private void btnGiderEkle_Enter(object sender, EventArgs e)
+        {
+            btnGiderEkle.BackColor = Color.SteelBlue;
+        }
+
+        private void btnGuncelle_Enter(object sender, EventArgs e)
+        {
+            btnGuncelle.BackColor= Color.SteelBlue;
+        }
+
+        private void btnAyaGoreListele_Enter(object sender, EventArgs e)
+        {
+            btnAyaGoreListele.BackColor= Color.SteelBlue;
+        }
+
+        private void button1_Enter(object sender, EventArgs e)
+        {
+            button1.BackColor= Color.SteelBlue;
+        }
+
+        private void btnTumVeriyiSil_Enter(object sender, EventArgs e)
+        {
+            btnTumVeriyiSil.BackColor= Color.SteelBlue;
+        }
     }
 }

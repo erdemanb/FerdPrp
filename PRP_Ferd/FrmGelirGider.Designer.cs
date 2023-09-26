@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGelirGider));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnGelirEkle = new System.Windows.Forms.Button();
@@ -61,23 +61,23 @@
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Oswald SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Oswald SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Oswald SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Oswald SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle28;
             this.dataGridView1.Location = new System.Drawing.Point(12, 91);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.dataGridView1.Name = "dataGridView1";
@@ -104,6 +104,8 @@
             this.btnGelirEkle.Text = "Gelir Ekle";
             this.btnGelirEkle.UseVisualStyleBackColor = false;
             this.btnGelirEkle.Click += new System.EventHandler(this.btnGelirEkle_Click);
+            this.btnGelirEkle.Enter += new System.EventHandler(this.btnGelirEkle_Enter);
+            this.btnGelirEkle.Leave += new System.EventHandler(this.btnGelirEkle_Leave);
             // 
             // btnGiderEkle
             // 
@@ -122,6 +124,8 @@
             this.btnGiderEkle.Text = "Gider Ekle";
             this.btnGiderEkle.UseVisualStyleBackColor = false;
             this.btnGiderEkle.Click += new System.EventHandler(this.btnGiderEkle_Click);
+            this.btnGiderEkle.Enter += new System.EventHandler(this.btnGiderEkle_Enter);
+            this.btnGiderEkle.Leave += new System.EventHandler(this.btnGiderEkle_Leave);
             // 
             // label1
             // 
@@ -179,6 +183,8 @@
             this.btnGuncelle.Text = "Güncelle";
             this.btnGuncelle.UseVisualStyleBackColor = false;
             this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
+            this.btnGuncelle.Enter += new System.EventHandler(this.btnGuncelle_Enter);
+            this.btnGuncelle.Leave += new System.EventHandler(this.btnGuncelle_Leave);
             // 
             // btnGelirSil
             // 
@@ -197,6 +203,8 @@
             this.btnGelirSil.Text = "Sil";
             this.btnGelirSil.UseVisualStyleBackColor = false;
             this.btnGelirSil.Click += new System.EventHandler(this.btnGelirSil_Click);
+            this.btnGelirSil.Enter += new System.EventHandler(this.btnGelirSil_Enter);
+            this.btnGelirSil.Leave += new System.EventHandler(this.btnGelirSil_Leave);
             // 
             // lblGelirGiderTur
             // 
@@ -247,6 +255,8 @@
             this.btnAyaGoreListele.Text = "Ay\'a Göre Listele";
             this.btnAyaGoreListele.UseVisualStyleBackColor = false;
             this.btnAyaGoreListele.Click += new System.EventHandler(this.btnAyaGoreListele_Click);
+            this.btnAyaGoreListele.Enter += new System.EventHandler(this.btnAyaGoreListele_Enter);
+            this.btnAyaGoreListele.Leave += new System.EventHandler(this.btnAyaGoreListele_Leave);
             // 
             // lblID
             // 
@@ -299,6 +309,8 @@
             this.btnTumVeriyiSil.Text = "Tüm Veriyi Sil";
             this.btnTumVeriyiSil.UseVisualStyleBackColor = false;
             this.btnTumVeriyiSil.Click += new System.EventHandler(this.btnTumVeriyiSil_Click);
+            this.btnTumVeriyiSil.Enter += new System.EventHandler(this.btnTumVeriyiSil_Enter);
+            this.btnTumVeriyiSil.Leave += new System.EventHandler(this.btnTumVeriyiSil_Leave);
             // 
             // button1
             // 
@@ -317,6 +329,8 @@
             this.button1.Text = "Seçili Aydaki Tüm Veriyi Sil";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Enter += new System.EventHandler(this.button1_Enter);
+            this.button1.Leave += new System.EventHandler(this.button1_Leave);
             // 
             // cmbTur
             // 
